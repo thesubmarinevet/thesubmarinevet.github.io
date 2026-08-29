@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Submarine Vet — Trading run like a boat</title>
+<meta name="description" content="Discipline-first futures and forex trading content, run on submarine-service discipline. Silent running over hype.">
+<meta property="og:title" content="The Submarine Vet">
+<meta property="og:description" content="Trading run like a boat: discipline first, noise ignored, instruments over instinct.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#05070a;
+    --bg-panel:#0b0f16;
+    --bg-panel-2:#0f141d;
+    --border:rgba(255,255,255,0.09);
+    --text:#e9edf1;
+    --text-dim:#8a94a3;
+    --accent:#39e7a5;
+    --accent-dim:#1f6b4f;
+    --brass:#c9a24b;
+    --radius:2px;
+    --mono:'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* nav */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(5,7,10,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:16px;padding-bottom:16px;
+    flex-wrap:wrap;gap:12px;
+  }
+  .brand{
+    font-family:var(--mono);
+    font-weight:700;
+    letter-spacing:0.04em;
+    font-size:15px;
+    text-decoration:none;
+    display:flex;align-items:center;gap:10px;
+  }
+  .brand .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 8px var(--accent);
+    flex:none;
+  }
+  .navlinks{display:flex;gap:28px;font-family:var(--mono);font-size:13px;letter-spacing:0.03em;}
+  .navlinks a{text-decoration:none;color:var(--text-dim);transition:color .15s;}
+  .navlinks a:hover{color:var(--accent);}
+
+  /* hero */
+  .hero{
+    position:relative;
+    padding:96px 0 80px;
+    overflow:hidden;
+    border-bottom:1px solid var(--border);
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:50%;right:-140px;
+    width:520px;height:520px;
+    transform:translateY(-50%);
+    border-radius:50%;
+    border:1px solid rgba(57,231,165,0.14);
+    background:
+      radial-gradient(circle at center, rgba(57,231,165,0.06), transparent 60%);
+    pointer-events:none;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    top:50%;right:-140px;
+    width:520px;height:520px;
+    transform:translateY(-50%);
+    border-radius:50%;
+    box-shadow:
+      0 0 0 1px rgba(57,231,165,0.06) inset,
+      0 0 0 90px rgba(57,231,165,0.03) inset,
+      0 0 0 180px rgba(57,231,165,0.02) inset;
+    pointer-events:none;
+  }
+  .kicker{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 18px;
+  }
+  h1{
+    font-size:clamp(34px,5vw,56px);
+    line-height:1.08;
+    margin:0 0 22px;
+    max-width:16ch;
+    letter-spacing:-0.01em;
+  }
+  .lede{
+    font-size:18px;
+    color:var(--text-dim);
+    max-width:52ch;
+    margin:0 0 36px;
+  }
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:0.03em;
+    padding:13px 22px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    display:inline-block;
+    border:1px solid var(--border);
+    transition:border-color .15s, background .15s;
+  }
+  .btn-primary{
+    background:var(--accent);
+    color:#04140d;
+    border-color:var(--accent);
+    font-weight:600;
+  }
+  .btn-primary:hover{background:#4ff3b5;}
+  .btn-ghost{color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+  section{padding:76px 0;border-bottom:1px solid var(--border);}
+  .section-head{margin-bottom:40px;max-width:60ch;}
+  .section-head .kicker{margin-bottom:12px;}
+  .section-head h2{font-size:28px;margin:0 0 14px;}
+  .section-head p{color:var(--text-dim);margin:0;}
+
+  /* positioning */
+  #positioning p{font-size:19px;color:var(--text-dim);max-width:66ch;}
+  #positioning strong{color:var(--text);font-weight:600;}
+
+  /* lexicon */
+  .lex-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1px;
+    background:var(--border);
+    border:1px solid var(--border);
+  }
+  @media (min-width:640px){ .lex-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (min-width:960px){ .lex-grid{grid-template-columns:repeat(4,1fr);} }
+  .lex-card{background:var(--bg-panel);padding:26px;}
+  .lex-term{
+    font-family:var(--mono);
+    color:var(--accent);
+    font-size:14px;
+    letter-spacing:0.02em;
+    margin:0 0 10px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .lex-term::before{content:"▸";color:var(--accent);}
+  .lex-card p{margin:0;color:var(--text-dim);font-size:14.5px;}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:start;}
+  .about-grid p{color:var(--text-dim);}
+  .about-grid p + p{margin-top:16px;}
+  .stat-panel{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    padding:24px;
+    font-family:var(--mono);
+    font-size:13px;
+  }
+  .stat-panel .row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);}
+  .stat-panel .row:last-child{border-bottom:none;}
+  .stat-panel .row span:first-child{color:var(--text-dim);}
+  .stat-panel .row span:last-child{color:var(--accent);}
+
+  @media (max-width:760px){
+    .about-grid{grid-template-columns:1fr;}
+    .hero::before,.hero::after{display:none;}
+  }
+
+  /* follow */
+  .follow-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1px;
+    background:var(--border);
+    border:1px solid var(--border);
+  }
+  @media (min-width:640px){ .follow-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (min-width:960px){ .follow-grid{grid-template-columns:repeat(4,1fr);} }
+  .follow-card{
+    background:var(--bg-panel);
+    padding:20px 22px;
+    text-decoration:none;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    transition:background .15s;
+  }
+  .follow-card:hover{background:var(--bg-panel-2);}
+  .follow-plat{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);}
+  .follow-handle{font-family:var(--mono);font-size:15px;color:var(--text);}
+  .follow-card:hover .follow-handle{color:var(--accent);}
+
+  footer{padding:40px 0 60px;}
+  .disclaimer{
+    font-size:12.5px;
+    color:var(--text-dim);
+    max-width:70ch;
+    border-left:2px solid var(--accent-dim);
+    padding-left:16px;
+    margin:0 0 28px;
+  }
+  .foot-row{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-family:var(--mono);font-size:12px;color:var(--text-dim);
+  }
+  .foot-row a{text-decoration:none;color:var(--text-dim);}
+  .foot-row a:hover{color:var(--accent);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="dot"></span>THE SUBMARINE VET</a>
+    <div class="navlinks">
+      <a href="#lexicon">Lexicon</a>
+      <a href="#about">About</a>
+      <a href="#follow">Follow</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="kicker">Futures &amp; Forex // Discipline-First</p>
+    <h1>Trading run like a boat.</h1>
+    <p class="lede">Discipline first, noise ignored, instruments over instinct. Most trading content sells excitement. This one sells composure under pressure — from someone who's actually operated under real pressure.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#lexicon">Read the lexicon</a>
+      <a class="btn btn-ghost" href="#follow">Follow along</a>
+    </div>
+  </div>
+</header>
+
+<section id="positioning">
+  <div class="wrap">
+    <p><strong>The Submarine Vet</strong> is built on one idea: the operating discipline that keeps a submarine crew alive is the same discipline that keeps a trading account alive. Silent running instead of overtrading. Reading instruments instead of guessing. Patience through long stretches of nothing, punctuated by moments that actually matter. No hype, no guru framing, no promises of returns — just the process, told straight, wins and losses both.</p>
+  </div>
+</section>
+
+<section id="lexicon">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">The Lexicon</p>
+      <h2>Submarine ops, translated to trading discipline.</h2>
+      <p>The vocabulary behind every post here. Learn these once — everything else builds on them.</p>
+    </div>
+    <div class="lex-grid">
+      <div class="lex-card">
+        <p class="lex-term">Silent Running</p>
+        <p>Staying out of a trade. Sitting on hands. The default state, not a failure state.</p>
+      </div>
+      <div class="lex-card">
+        <p class="lex-term">Periscope Depth</p>
+        <p>Checking the setup before committing — a brief, deliberate look before exposure.</p>
+      </div>
+      <div class="lex-card">
+        <p class="lex-term">Rig for Dive</p>
+        <p>The pre-trade checklist and risk sizing, done the same way every single time.</p>
+      </div>
+      <div class="lex-card">
+        <p class="lex-term">Depth Charge</p>
+        <p>A news event or volatility spike that can wreck an undisciplined position.</p>
+      </div>
+      <div class="lex-card">
+        <p class="lex-term">Battle Stations</p>
+        <p>A confirmed, high-conviction setup — worth actually acting on.</p>
+      </div>
+      <div class="lex-card">
+        <p class="lex-term">Torpedoed</p>
+        <p>A stopped-out trade, discussed plainly, without spin. No highlight reel here.</p>
+      </div>
+      <div class="lex-card">
+        <p class="lex-term">Surface</p>
+        <p>Closing a position. Taking profit. Standing down.</p>
+      </div>
+      <div class="lex-card">
+        <p class="lex-term">The Boat</p>
+        <p>The account itself — something you're responsible for keeping afloat, not a scoreboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">About</p>
+      <h2>Real service. Real discipline.</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <!-- Draft copy — swap in your own service background, boat/rate, and how you found your way to trading. Keep it plain and specific; that's what makes the credibility land. -->
+        <p>I spent years running submarines — reading instruments instead of guessing, staying disciplined through long stretches where nothing happens, and treating risk management as a survival habit rather than a slogan.</p>
+        <p>Markets reward the same discipline. Most trading content sells excitement; this is the opposite of that. No signals, no promises — a straight account of process, setups, and results, run the way a boat is run.</p>
+      </div>
+      <div class="stat-panel">
+        <div class="row"><span>Focus</span><span>Futures / Forex</span></div>
+        <div class="row"><span>Approach</span><span>Discipline-first</span></div>
+        <div class="row"><span>Status</span><span>Rigging for dive</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="follow">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Follow</p>
+      <h2>Same handle, everywhere.</h2>
+      <p>@thesubmarinevet across every platform below.</p>
+    </div>
+    <div class="follow-grid">
+      <a class="follow-card" href="https://x.com/thesubmarinevet" target="_blank" rel="noopener">
+        <span class="follow-plat">X</span>
+        <span class="follow-handle">@thesubmarinevet</span>
+      </a>
+      <a class="follow-card" href="https://instagram.com/thesubmarinevet" target="_blank" rel="noopener">
+        <span class="follow-plat">Instagram</span>
+        <span class="follow-handle">@thesubmarinevet</span>
+      </a>
+      <a class="follow-card" href="https://tiktok.com/@thesubmarinevet" target="_blank" rel="noopener">
+        <span class="follow-plat">TikTok</span>
+        <span class="follow-handle">@thesubmarinevet</span>
+      </a>
+      <a class="follow-card" href="https://youtube.com/@thesubmarinevet" target="_blank" rel="noopener">
+        <span class="follow-plat">YouTube</span>
+        <span class="follow-handle">@thesubmarinevet</span>
+      </a>
+      <a class="follow-card" href="https://facebook.com/thesubmarinevet" target="_blank" rel="noopener">
+        <span class="follow-plat">Facebook</span>
+        <span class="follow-handle">@thesubmarinevet</span>
+      </a>
+      <a class="follow-card" href="https://www.tradingview.com/u/thesubmarinevet/" target="_blank" rel="noopener">
+        <span class="follow-plat">TradingView</span>
+        <span class="follow-handle">@thesubmarinevet</span>
+      </a>
+      <a class="follow-card" href="https://threads.net/@thesubmarinevet" target="_blank" rel="noopener">
+        <span class="follow-plat">Threads</span>
+        <span class="follow-handle">@thesubmarinevet</span>
+      </a>
+      <a class="follow-card" href="mailto:thesubmarinevet@gmail.com">
+        <span class="follow-plat">Email</span>
+        <span class="follow-handle">thesubmarinevet@gmail.com</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="disclaimer">Educational content only. Nothing here is financial advice or a signal to trade. Futures and forex trading involves substantial risk of loss and isn't suitable for every investor. Past results, where discussed, aren't a guarantee of future performance.</p>
+    <div class="foot-row">
+      <span>&copy; <span id="year"></span> The Submarine Vet</span>
+      <a href="mailto:thesubmarinevet@gmail.com">thesubmarinevet@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
