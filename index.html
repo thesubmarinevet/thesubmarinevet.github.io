@@ -76,30 +76,16 @@
     overflow:hidden;
     border-bottom:1px solid var(--border);
   }
-  .hero::before{
-    content:"";
+  .hero-mark{
     position:absolute;
     top:50%;right:-140px;
     width:520px;height:520px;
     transform:translateY(-50%);
-    border-radius:50%;
-    border:1px solid rgba(57,231,165,0.14);
-    background:
-      radial-gradient(circle at center, rgba(57,231,165,0.06), transparent 60%);
     pointer-events:none;
   }
-  .hero::after{
-    content:"";
-    position:absolute;
-    top:50%;right:-140px;
-    width:520px;height:520px;
-    transform:translateY(-50%);
-    border-radius:50%;
-    box-shadow:
-      0 0 0 1px rgba(57,231,165,0.06) inset,
-      0 0 0 90px rgba(57,231,165,0.03) inset,
-      0 0 0 180px rgba(57,231,165,0.02) inset;
-    pointer-events:none;
+  .hero-mark svg{display:block;width:100%;height:100%;}
+  @media (max-width:900px){
+    .hero-mark{display:none;}
   }
   .kicker{
     font-family:var(--mono);
@@ -251,6 +237,38 @@
 </nav>
 
 <header class="hero" id="top">
+  <div class="hero-mark" aria-hidden="true">
+    <svg viewBox="0 0 800 800">
+      <circle cx="400" cy="400" r="360" fill="none" stroke="#39e7a5" stroke-opacity="0.10" stroke-width="5"/>
+      <circle cx="400" cy="400" r="290" fill="none" stroke="#39e7a5" stroke-opacity="0.18" stroke-width="5"/>
+      <circle cx="400" cy="400" r="220" fill="none" stroke="#39e7a5" stroke-opacity="0.30" stroke-width="5"/>
+      <circle cx="400" cy="400" r="150" fill="none" stroke="#39e7a5" stroke-opacity="0.50" stroke-width="5"/>
+      <g transform="translate(400,392) scale(1.1)" fill="#39e7a5" style="filter:drop-shadow(0 0 26px rgba(57,231,165,0.55));">
+        <path d="M -150,0
+                 C -150,-16 -125,-26 -95,-27
+                 L 70,-27
+                 C 96,-27 108,-21 116,-10
+                 L 138,-4
+                 C 146,-2 146,2 138,4
+                 L 116,10
+                 C 108,21 96,27 70,27
+                 L -95,27
+                 C -125,26 -150,16 -150,0
+                 Z"/>
+        <path d="M -34,-27
+                 L -34,-64
+                 C -34,-73 -26,-78 -14,-78
+                 L 6,-78
+                 C 16,-78 22,-72 22,-63
+                 L 22,-27
+                 Z"/>
+        <rect x="-17" y="-96" width="5" height="20" rx="2"/>
+        <rect x="1" y="-90" width="5" height="14" rx="2"/>
+        <path d="M 108,-9 L 130,-22 L 134,-16 L 114,-4 Z"/>
+        <path d="M 108,9 L 130,22 L 134,16 L 114,4 Z"/>
+      </g>
+    </svg>
+  </div>
   <div class="wrap">
     <p class="kicker">Futures // Automation, Indicators &amp; NinjaTrader</p>
     <h1>Instruments over instinct.</h1>
