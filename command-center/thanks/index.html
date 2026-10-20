@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Welcome aboard — Silent Service Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="/command-center/"><span class="dot"></span>SILENT SERVICE TRADING</a>
+    <div class="navlinks">
+      <a class="nav-cta" href="/command-center/">Command Center</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Payment received</p>
+    <h1>Welcome aboard.</h1>
+    <p class="lede">Thanks for joining the first crew. Your receipt from Stripe is on its way to the email address you used at checkout.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">What happens next</p>
+      <h2>Four steps to your first copied trade.</h2>
+    </div>
+    <ol class="steps">
+      <li><strong>Watch your inbox</strong>Your license key and the download link arrive by email. During early access they're sent personally, usually within a few hours. Check your spam folder too.</li>
+      <li><strong>Install</strong>In NinjaTrader 8: Tools → Import → NinjaScript Add-On, choose the file, then restart NinjaTrader.</li>
+      <li><strong>Enter your key</strong>Open Silent Service Command Center from the New menu and paste your license key.</li>
+      <li><strong>Start on Sim</strong>Set your prop rules and copier group on simulation accounts first. Go live when you trust it.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Need help?</p>
+      <h2>Reach the developer directly.</h2>
+      <p>Email <a href="mailto:thesubmarineveteran@gmail.com">thesubmarineveteran@gmail.com</a> with your order email and a short description. Early-access members get answers from the person who built it.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="disclaimer">Silent Service Command Center is a software tool, not financial advice. Trading futures involves substantial risk of loss. You are responsible for every order placed on your accounts and for following your broker's and prop firm's rules. Check your firm's rules on copiers and automation before you copy to its accounts.</p>
+    <div class="foot-row">
+      <span>&copy; <span id="year"></span> Silent Service Trading · by <a href="/">The Submarine Vet</a></span>
+      <a href="mailto:thesubmarineveteran@gmail.com">thesubmarineveteran@gmail.com</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

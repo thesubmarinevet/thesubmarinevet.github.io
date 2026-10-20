@@ -24,7 +24,7 @@
       <a href="#how">How it works</a>
       <a href="#faq">FAQ</a>
       <a href="/">The Submarine Vet</a>
-      <a class="nav-cta js-checkout" href="mailto:thesubmarineveteran@gmail.com?subject=Command%20Center%20early%20access">Early access</a>
+      <a class="nav-cta" href="#early-access">Pricing</a>
     </div>
   </div>
 </nav>
@@ -35,7 +35,7 @@
     <h1>Every prop account. One console.</h1>
     <p class="lede">Silent Service Command Center puts a trade copier, your prop-firm rules and a one-click kill switch in a single window inside NinjaTrader. It runs on your own machine. You still make the trades — it keeps every account inside its limits while you do.</p>
     <div class="cta-row">
-      <a class="btn btn-primary js-checkout" href="mailto:thesubmarineveteran@gmail.com?subject=Command%20Center%20early%20access">Join early access</a>
+      <a class="btn btn-primary" href="#early-access">See founder pricing</a>
       <a class="btn btn-ghost" href="#features">See what's inside</a>
     </div>
   </div>
@@ -222,23 +222,51 @@
 
 <section id="early-access">
   <div class="wrap">
-    <div class="access">
-      <div>
-        <p class="kicker">Early access</p>
-        <h2>A small first crew.</h2>
-        <p>The first release goes to a small group of traders at a founder price that stays with you while you're subscribed. You get direct support from the developer, and your feedback shapes what's built next.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary js-checkout" href="mailto:thesubmarineveteran@gmail.com?subject=Command%20Center%20early%20access">Join early access</a>
-          <a class="btn btn-ghost" href="#faq">Read the FAQ</a>
-        </div>
+    <div class="section-head">
+      <p class="kicker">Early access · founder pricing</p>
+      <h2>A small first crew.</h2>
+      <p>The first release goes to a small group of traders. Founder prices stay with you for as long as you stay subscribed. You get direct support from the developer, and your feedback shapes what's built next.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <h3>Monthly</h3>
+        <p class="price">$149.99<span>/ month</span></p>
+        <p class="price-note">Cancel anytime.</p>
+        <ul>
+          <li>Silent Service Command Center</li>
+          <li>All updates while subscribed</li>
+          <li>Up to 2 machines</li>
+        </ul>
+        <a class="btn btn-ghost js-buy" data-plan="monthly" href="mailto:thesubmarineveteran@gmail.com?subject=Command%20Center%20early%20access&body=Plan%3A%20Monthly">Start monthly</a>
       </div>
-      <div class="stat-panel">
-        <div class="row"><span>Platform</span><span>NinjaTrader 8</span></div>
-        <div class="row"><span>System</span><span>Windows PC / VPS</span></div>
-        <div class="row"><span>Markets</span><span>CME futures</span></div>
-        <div class="row"><span>Billing</span><span>Monthly, cancel anytime</span></div>
-        <div class="row"><span>Pricing</span><span class="brass">Founder price</span></div>
+      <div class="price-card">
+        <h3>Annual <span class="tag">Save 20%</span></h3>
+        <p class="price">$1,439.90<span>/ year</span></p>
+        <p class="price-note">$119.99 a month, paid yearly.</p>
+        <ul>
+          <li>Everything in Monthly</li>
+          <li>Saves $360 a year vs monthly</li>
+          <li>Up to 2 machines</li>
+        </ul>
+        <a class="btn btn-ghost js-buy" data-plan="annual" href="mailto:thesubmarineveteran@gmail.com?subject=Command%20Center%20early%20access&body=Plan%3A%20Annual">Start annual</a>
       </div>
+      <div class="price-card featured">
+        <h3>Lifetime <span class="tag soon">First 25 only</span></h3>
+        <p class="price">$2,999<span>once</span></p>
+        <p class="price-note">Pay once. Never billed again.</p>
+        <ul>
+          <li><strong>Every future upgrade</strong> of the Command Center</li>
+          <li><strong>Every bot</strong> (automated strategy) we release</li>
+          <li><strong>Every playbook</strong> we release</li>
+          <li>Up to 2 machines</li>
+        </ul>
+        <a class="btn btn-primary js-buy" data-plan="lifetime" href="mailto:thesubmarineveteran@gmail.com?subject=Command%20Center%20early%20access&body=Plan%3A%20Lifetime">Claim a lifetime seat</a>
+      </div>
+    </div>
+    <div class="stat-panel price-reqs">
+      <div class="row"><span>Platform</span><span>NinjaTrader 8</span></div>
+      <div class="row"><span>System</span><span>Windows PC / VPS</span></div>
+      <div class="row"><span>Markets</span><span>CME futures</span></div>
     </div>
   </div>
 </section>
@@ -270,8 +298,16 @@
       <p>Yes, and you should. Set it up on NinjaTrader simulation accounts first, test your copier group and rules, then move to live accounts.</p>
     </details>
     <details>
+      <summary>What does Lifetime include?</summary>
+      <p>One payment, never billed again. You get every future upgrade of the Command Center, plus every bot (automated strategy) and every playbook Silent Service Trading releases, for as long as they're offered. Only the first 25 lifetime seats are sold at this price.</p>
+    </details>
+    <details>
       <summary>What happens if I cancel?</summary>
-      <p>Your subscription runs to the end of the period you paid for. After that the Command Center won't start new sessions. Nothing about your NinjaTrader accounts or their positions is changed.</p>
+      <p>Monthly and annual plans run to the end of the period you paid for. After that the Command Center won't start new sessions. Nothing about your NinjaTrader accounts or their positions is changed.</p>
+    </details>
+    <details>
+      <summary>Can I switch plans?</summary>
+      <p>Yes. Email us and we'll help you move between monthly, annual and Lifetime.</p>
     </details>
     <details>
       <summary>Do you see my account data?</summary>
@@ -292,12 +328,16 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-  // Checkout: until the store is live, these buttons open an email.
-  // When the Lemon Squeezy checkout link exists, paste it here — every "Early access" button uses it.
-  var CHECKOUT_URL = '';
-  if (CHECKOUT_URL) {
-    document.querySelectorAll('.js-checkout').forEach(function (a) { a.href = CHECKOUT_URL; });
-  }
+  // Stripe payment links. Paste each link between the quotes; an empty one keeps that button on email.
+  var BUY = {
+    monthly:  '',
+    annual:   '',
+    lifetime: ''
+  };
+  document.querySelectorAll('.js-buy').forEach(function (a) {
+    var url = BUY[a.getAttribute('data-plan')];
+    if (url) a.href = url;
+  });
 </script>
 </body>
 </html>
