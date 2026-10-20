@@ -330,9 +330,9 @@
   document.getElementById('year').textContent = new Date().getFullYear();
   // Stripe payment links. Paste each link between the quotes; an empty one keeps that button on email.
   var BUY = {
-    monthly:  '',
-    annual:   '',
-    lifetime: ''
+    monthly:  'https://buy.stripe.com/28EaEWba9bwtcDM0x0gnK00',
+    annual:   'https://buy.stripe.com/14A7sK0vvfMJ6fo3JcgnK01',
+    lifetime: 'https://buy.stripe.com/8x2eVca65cAxavEfrUgnK02'
   };
   document.querySelectorAll('.js-buy').forEach(function (a) {
     var url = BUY[a.getAttribute('data-plan')];
