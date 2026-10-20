@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /command-center/thanks/
+
+Sitemap: https://thesubmarinevet.com/sitemap.xml

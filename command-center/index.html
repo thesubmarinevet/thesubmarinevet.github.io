@@ -1,343 +1,225 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Silent Service Command Center — copier, prop rules and a kill switch for NinjaTrader</title>
-<meta name="description" content="Silent Service Command Center: one console inside NinjaTrader 8 for traders running several prop accounts. Trade copier, prop-firm rules, one-click flatten. Runs on your own machine.">
-<meta property="og:title" content="Silent Service Command Center">
-<meta property="og:description" content="Run every prop account from one console: trade copier, prop-firm rules and a one-click kill switch, inside NinjaTrader on your own machine.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Command Center Features | Silent Service Trading</title>
+<meta name="description" content="Command Center for NinjaTrader 8: Trade Console, trade copier, prop-firm rules, account overview, Market Read, playbooks and a self-filling trade journal.">
+<link rel="canonical" href="https://thesubmarinevet.com/command-center/">
+<meta name="theme-color" content="#0B1220">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Silent Service Trading">
+<meta property="og:title" content="Command Center Features | Silent Service Trading">
+<meta property="og:description" content="Command Center for NinjaTrader 8: Trade Console, trade copier, prop-firm rules, account overview, Market Read, playbooks and a self-filling trade journal.">
 <meta property="og:url" content="https://thesubmarinevet.com/command-center/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;650;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
 </head>
 <body>
-
-<nav>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
   <div class="wrap">
-    <a class="brand" href="#top"><span class="dot"></span>SILENT SERVICE TRADING</a>
-    <div class="navlinks">
-      <a href="#features">Features</a>
-      <a href="#how">How it works</a>
-      <a href="#faq">FAQ</a>
-      <a href="/">The Submarine Vet</a>
-      <a class="nav-cta" href="#early-access">Pricing</a>
+    <a class="logo" href="/" aria-label="Silent Service Trading — home">
+      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+  <rect x="1" y="1" width="30" height="30" rx="8" fill="#141B26" stroke="#2C3A52"/>
+  <circle cx="16" cy="16" r="9.5" fill="none" stroke="#5B8DB8" stroke-width="1.6" stroke-opacity=".55"/>
+  <circle cx="16" cy="16" r="5" fill="none" stroke="#5B8DB8" stroke-width="1.6"/>
+  <path d="M16 16 L23.5 9.5" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="16" cy="16" r="1.8" fill="#38BDF8"/>
+</svg>
+      <span class="logo-text"><strong>Silent Service Trading</strong><span>by The Submarine Vet</span></span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/command-center/" aria-current="page">Command Center</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/about/">About</a>
+      <a href="/support/">Support</a>
+      <a class="btn btn-primary btn-sm" href="/pricing/">Get Command Center</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Silent Service Command Center</p>
+      <h1>Your whole trading day, in one NinjaTrader workspace.</h1>
+      <p class="lead">Command Center runs inside NinjaTrader&nbsp;8 on your own PC. It doesn't trade for you — it gives you one place to trade, monitor, plan and review every account.</p>
+      <div class="btn-row" style="margin-top:28px">
+        <a class="btn btn-primary" href="/pricing/">See pricing</a>
+        <a class="btn btn-secondary" href="/support/#getting-started">Getting started</a>
+      </div>
     </div>
+    <div>
+<figure class="shot">
+  <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>Silent Service Command Center</span></div>
+  <!-- SCREENSHOT TO ADD: /assets/img/cc-workspace.png  — replace the div below with:
+       <img src="/assets/img/cc-workspace.png" alt="The Command Center workspace in NinjaTrader 8" width="1600" height="1000" loading="lazy"> -->
+  <div class="shot-placeholder" role="img" aria-label="The Command Center workspace in NinjaTrader 8 (screenshot coming soon)">
+    <strong>Command Center workspace</strong>
+    <span>Screenshot coming soon</span>
+  </div>
+</figure>
+    </div>
+  </div>
+</section>
+
+<nav class="subnav" aria-label="Feature categories">
+  <div class="wrap">
+    <ul>
+      <li><a href="#trade">Trade</a></li>
+      <li><a href="#monitor">Monitor</a></li>
+      <li><a href="#plan">Plan</a></li>
+      <li><a href="#review">Review</a></li>
+      <li><a href="#requirements">Requirements</a></li>
+    </ul>
   </div>
 </nav>
 
-<header class="hero" id="top">
+<div class="section">
   <div class="wrap">
-    <p class="kicker">Silent Service Trading // Command Center for NinjaTrader 8</p>
-    <h1>Every prop account. One console.</h1>
-    <p class="lede">Silent Service Command Center puts a trade copier, your prop-firm rules and a one-click kill switch in a single window inside NinjaTrader. It runs on your own machine. You still make the trades — it keeps every account inside its limits while you do.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#early-access">See founder pricing</a>
-      <a class="btn btn-ghost" href="#features">See what's inside</a>
+    <div class="legend" style="margin-bottom:56px">
+      <span><span class="badge badge-available">Available</span> In the current release</span>
+      <span><span class="badge badge-early">In testing</span> Built, finishing testing before release</span>
+      <span><span class="badge badge-planned">Planned</span> On the roadmap — not in the current release</span>
     </div>
+    <section class="cat" id="trade" aria-labelledby="trade-h">
+      <div class="cat-head">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></div>
+        <div><h2 id="trade-h">Trade</h2><p>Order entry, position management and ATM integration — plus a trade copier for running several accounts at once.</p></div>
+      </div>
+      <div class="feature-list">
+        <div class="feature"><h3>Trade Console <span class="badge badge-available">Available</span></h3><p>Buy and sell at market or limit with stop-loss and take-profit in ticks. Reverse, close and cancel from the same panel. Buttons never move — status messages appear below them, so a click always lands where you aim.</p></div>
+        <div class="feature"><h3>One-click trims <span class="badge badge-available">Available</span></h3><p>Trim ¼ or ½ of a position in one click, rounded to the nearest contract and always leaving at least one open.</p></div>
+        <div class="feature"><h3>ATM integration <span class="badge badge-available">Available</span></h3><p>Pick any of your NinjaTrader ATM strategy templates from the console. Brackets and ATM orders stay on the instrument they were placed on, even after you switch to another.</p></div>
+        <div class="feature"><h3>Trade copier <span class="badge badge-available">Available</span></h3><p>Trade one lead account and copy to followers, each with its own multiplier, maximum contracts and daily loss / profit lock. Copy minis as micros (NQ → MNQ, ES → MES and more).</p></div>
+        <div class="feature"><h3>Flatten all accounts <span class="badge badge-available">Available</span></h3><p>One click turns the copier off, cancels every working order and closes every position on every account — and logs what each account held.</p></div>
+        <div class="feature"><h3>Step-down rotation <span class="badge badge-early">In testing</span></h3><p>One follower takes each trade until it reaches its target or loss limit, then the next account takes over, with working exit orders on the follower.</p></div>
+      </div>
+    </section>
+    <section class="cat" id="monitor" aria-labelledby="monitor-h">
+      <div class="cat-head">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M7 12l2.5-3 2.5 2 4-4"/></svg></div>
+        <div><h2 id="monitor-h">Monitor</h2><p>An overview of every account, its positions and its limits, with connection and status always in view.</p></div>
+      </div>
+      <div class="feature-list">
+        <div class="feature"><h3>Accounts overview <span class="badge badge-available">Available</span></h3><p>Day P&amp;L and balance for every account, sortable by name, P&amp;L or balance. Simulation accounts are kept out of your totals.</p></div>
+        <div class="feature"><h3>Prop-firm rules <span class="badge badge-available">Available</span></h3><p>Per account: stage, drawdown, daily loss and profit limits, and consistency %. Reach a limit and the account locks and flattens; locks lift at the next trading day.</p></div>
+        <div class="feature"><h3>Positions and open P&amp;L <span class="badge badge-available">Available</span></h3><p>Your position and its open P&amp;L — in dollars, points or both — on the chart's position line and in the console header.</p></div>
+        <div class="feature"><h3>Connection and copier status <span class="badge badge-available">Available</span></h3><p>A connection indicator and a COPIER ON / OFF button sit in view at all times, so you know what is live.</p></div>
+        <div class="feature"><h3>Automated strategy overview <span class="badge badge-available">Available</span></h3><p>See which NinjaTrader strategies are running, on which account and instrument, and whether they are in sync.</p></div>
+        <div class="feature"><h3>Max micros per account <span class="badge badge-early">In testing</span></h3><p>Set the most micros each account may trade. The copier caps to it, and your own strategies can read it and size down.</p></div>
+      </div>
+    </section>
+    <section class="cat" id="plan" aria-labelledby="plan-h">
+      <div class="cat-head">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18" cy="16" r="3"/><path d="M20.2 18.2L22 20"/></svg></div>
+        <div><h2 id="plan-h">Plan</h2><p>Market Read, chart levels and playbooks to prepare the session and stay on plan during it.</p></div>
+      </div>
+      <div class="feature-list">
+        <div class="feature"><h3>Market Read <span class="badge badge-available">Available</span></h3><p>The session at a glance: key levels with their distance from price, market bias and the opening range.</p></div>
+        <div class="feature"><h3>Chart levels <span class="badge badge-available">Available</span></h3><p>Prior day high and low, Asia / London / New York session ranges, premarket, 15-minute opening range, VWAP, POC from tick data, daily pivots, fair value gaps and EMAs — drawn for you.</p></div>
+        <div class="feature"><h3>Playbooks <span class="badge badge-available">Available</span></h3><p>Add playbooks for alerts, chart markers and a playbook panel. Import rule playbooks or install playbook packs. A playbook never places an order — you decide.</p></div>
+        <div class="feature"><h3>Playbook Builder <span class="badge badge-planned">Planned</span></h3><p>Build your own setups without code — for example a break of the 15-minute high, then a retest within six bars, after 9:45 ET — with a plain-English preview and past hits on the chart.</p></div>
+        <div class="feature"><h3>Alert sounds and phone alerts <span class="badge badge-planned">Planned</span></h3><p>Choose sounds per alert type, and get playbook alerts on your phone through the free ntfy app. Alerts only — no account data is ever sent.</p></div>
+      </div>
+    </section>
+    <section class="cat" id="review" aria-labelledby="review-h">
+      <div class="cat-head">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h5"/></svg></div>
+        <div><h2 id="review-h">Review</h2><p>A trade journal that fills itself, and the performance history to learn from it.</p></div>
+      </div>
+      <div class="feature-list">
+        <div class="feature"><h3>Trade Journal <span class="badge badge-available">Available</span></h3><p>Every fill is recorded automatically and grouped into round-trip trades, with daily summary tiles, a trades list and fills.</p></div>
+        <div class="feature"><h3>Performance history <span class="badge badge-available">Available</span></h3><p>Results by day and by account, with an equity curve. Exclude accounts you trade just for fun from your statistics.</p></div>
+        <div class="feature"><h3>Trade notes <span class="badge badge-available">Available</span></h3><p>Add notes to any trade. When one of your automated strategies placed the trade, its name is added for you.</p></div>
+      </div>
+    </section>
   </div>
-</header>
+</div>
 
-<section id="problem">
+<section class="section section-alt" id="requirements" style="scroll-margin-top:96px">
   <div class="wrap">
     <div class="section-head">
-      <p class="kicker">The problem</p>
-      <h2>Prop accounts don't blow up on the chart. They blow up in the admin.</h2>
-      <p>A follower that copied one contract too many. A daily loss limit nobody was watching on account four. A position left open on the instrument you switched away from. When you trade five accounts at once, the risk isn't the setup — it's keeping track.</p>
+      <p class="eyebrow">Requirements</p>
+      <h2>What you need.</h2>
     </div>
-    <div class="sst-points">
-      <div><h3>Copy with limits</h3><p>Every follower has its own size, contract cap and daily loss / profit lock.</p></div>
-      <div><h3>Rules that enforce themselves</h3><p>Enter each firm's limits once. Hit one and that account locks and flattens.</p></div>
-      <div><h3>One button out</h3><p>FLATTEN ALL ACCOUNTS: copier off, every position closed, every order cancelled.</p></div>
+    <div class="table-wrap">
+      <table>
+        <caption class="sr-only">Command Center requirements</caption>
+        <tbody>
+          <tr><th scope="row">Platform</th><td>NinjaTrader&nbsp;8</td></tr>
+          <tr><th scope="row">Computer</th><td>Windows PC or Windows VPS; NinjaTrader must be open and connected while you trade</td></tr>
+          <tr><th scope="row">Markets</th><td>CME futures (index, energy and metals contracts, minis and micros)</td></tr>
+          <tr><th scope="row">Accounts</th><td>Any account you can trade in NinjaTrader&nbsp;8, including simulation accounts</td></tr>
+          <tr><th scope="row">License</th><td>One license key, up to 2 machines</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
-<section id="features">
+<section class="section">
   <div class="wrap">
-    <div class="section-head">
-      <p class="kicker">What's inside</p>
-      <h2>Built for traders running several funded accounts.</h2>
-    </div>
-
-    <figure class="diagram" aria-label="Trade copier: one lead account copied to three followers, each with its own limits">
-      <svg viewBox="0 0 880 300" role="img">
-        <defs>
-          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#39e7a5"/></marker>
-        </defs>
-        <g font-family="IBM Plex Mono, monospace">
-          <rect x="20" y="105" width="210" height="90" fill="#0f141d" stroke="#39e7a5" stroke-opacity="0.6"/>
-          <text x="40" y="138" fill="#8a94a3" font-size="12" letter-spacing="1.5">LEAD</text>
-          <text x="40" y="164" fill="#e9edf1" font-size="16">LONG 2 NQ</text>
-          <text x="40" y="184" fill="#8a94a3" font-size="12">you or your strategy</text>
-
-          <path d="M232,150 C300,150 300,55 375,55" fill="none" stroke="#39e7a5" stroke-width="1.5" marker-end="url(#arr)"/>
-          <path d="M232,150 L375,150" fill="none" stroke="#39e7a5" stroke-width="1.5" marker-end="url(#arr)"/>
-          <path d="M232,150 C300,150 300,245 375,245" fill="none" stroke="#c9a24b" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#arr)"/>
-
-          <rect x="380" y="20" width="480" height="70" fill="#0b0f16" stroke="rgba(255,255,255,0.12)"/>
-          <text x="400" y="48" fill="#e9edf1" font-size="14">FOLLOWER A · LONG 2 NQ</text>
-          <text x="400" y="72" fill="#8a94a3" font-size="12">×1 · max 3 contracts · daily loss lock on</text>
-
-          <rect x="380" y="115" width="480" height="70" fill="#0b0f16" stroke="rgba(255,255,255,0.12)"/>
-          <text x="400" y="143" fill="#e9edf1" font-size="14">FOLLOWER B · LONG 2 MNQ</text>
-          <text x="400" y="167" fill="#8a94a3" font-size="12">MICRO on · NQ copied as MNQ · max 5 micros</text>
-
-          <rect x="380" y="210" width="480" height="70" fill="#0b0f16" stroke="#c9a24b" stroke-opacity="0.5"/>
-          <text x="400" y="238" fill="#c9a24b" font-size="14">FOLLOWER C · LOCKED · FLAT</text>
-          <text x="400" y="262" fill="#8a94a3" font-size="12">daily loss limit hit · copying stopped for today</text>
-        </g>
-      </svg>
-      <ul class="diagram-stack">
-        <li class="lead">LEAD · LONG 2 NQ<span>you or your strategy</span></li>
-        <li>FOLLOWER A · LONG 2 NQ<span>×1 · max 3 contracts · daily loss lock on</span></li>
-        <li>FOLLOWER B · LONG 2 MNQ<span>MICRO on · max 5 micros</span></li>
-        <li class="locked">FOLLOWER C · LOCKED · FLAT<span>daily loss limit hit · stopped for today</span></li>
-      </ul>
-      <figcaption>One lead, many followers — each one copies inside its own limits.</figcaption>
-    </figure>
-
-    <div class="feat-grid">
-      <div class="feat">
-        <h3>Trade copier</h3>
-        <p>Trade one account; the rest follow, each on its own terms.</p>
-        <ul>
-          <li><strong>Size per follower:</strong> multiplier and max contracts.</li>
-          <li><strong>Minis to micros:</strong> copy NQ as MNQ, ES as MES and more, with a max-micros cap.</li>
-          <li><strong>Daily loss / take-profit lock</strong> per follower.</li>
-          <li><strong>STEP-DOWN:</strong> one follower takes each trade until it reaches its target or loss limit, then the next account takes over — with the exit orders working on the follower.</li>
-          <li>Copier ON / OFF right in the console header.</li>
-        </ul>
-      </div>
-      <div class="feat">
-        <h3>Prop-firm rules</h3>
-        <p>Enter each account's rules once. The Command Center watches them every second.</p>
-        <ul>
-          <li><strong>Per account:</strong> stage, drawdown, daily limits, consistency %, max micros.</li>
-          <li>A limit hit <strong>locks the account and flattens it</strong>.</li>
-          <li>Locks lift at the next trading day.</li>
-          <li>Your automated strategies can read each account's max micros and size down to fit.</li>
-          <li>Sim accounts hidden with one toggle.</li>
-        </ul>
-      </div>
-      <div class="feat">
-        <h3>Kill switch</h3>
-        <p>For the moment you need everything closed, now.</p>
-        <ul>
-          <li><strong>FLATTEN ALL ACCOUNTS</strong> — one click, no confirm dialog.</li>
-          <li>Turns the copier off first, so followers don't fight the flatten.</li>
-          <li>Closes every position and cancels every working order, on every account.</li>
-          <li>Logs what each account was holding.</li>
-        </ul>
-      </div>
-      <div class="feat">
-        <h3>Trade Console</h3>
-        <p>Order entry built so you don't misclick under pressure.</p>
-        <ul>
-          <li>Buy / sell, stop loss and target, reverse, close, cancel.</li>
-          <li>Trim ¼ / ½ in one click.</li>
-          <li><strong>Buttons never move.</strong> Messages appear below them, never above.</li>
-          <li>Switch instruments freely — orders keep working on the one they were placed on.</li>
-        </ul>
-      </div>
-      <div class="feat">
-        <h3>Accounts &amp; journal</h3>
-        <p>Every account's day at a glance, and a record of every trade.</p>
-        <ul>
-          <li>Day P&amp;L and balance per account, sortable.</li>
-          <li>Open P&amp;L on the chart's position line.</li>
-          <li>Trades logged automatically; the strategy that placed a trade is noted on it.</li>
-          <li>Exclude "just for fun" accounts from your stats.</li>
-        </ul>
-      </div>
-      <div class="feat">
-        <h3>Chart &amp; levels</h3>
-        <p>The levels most intraday traders draw by hand, drawn for you.</p>
-        <ul>
-          <li>Prior day high / low, Asia / London / NY session ranges, premarket, opening range.</li>
-          <li>VWAP, POC from tick data, daily pivots, fair value gaps.</li>
-          <li>See which automated strategies are running, and on what.</li>
-        </ul>
-      </div>
-      <div class="feat">
-        <h3>Playbook Builder <span class="tag soon">Coming</span></h3>
-        <p>Build your own setups without code — for example "break of the 15-minute high, then a retest within 6 bars, after 9:45."</p>
-        <ul>
-          <li>Alerts and chart markers only. A playbook never places an order.</li>
-        </ul>
-      </div>
-      <div class="feat">
-        <h3>Phone alerts <span class="tag soon">Coming</span></h3>
-        <p>Your playbook alerts on your phone through the free ntfy app. Alerts only — no account numbers, balances or positions are ever sent.</p>
-      </div>
+    <div class="cta">
+      <h2>Ready to run every account from one console?</h2>
+      <p>Early access is open at founder pricing. Start on simulation accounts and go live when you trust it.</p>
+      <div class="btn-row"><a class="btn btn-primary" href="/pricing/">See pricing</a><a class="btn btn-secondary" href="/support/">Questions? Visit support</a></div>
     </div>
   </div>
 </section>
-
-<section id="local">
+</main>
+<footer class="site-footer">
   <div class="wrap">
-    <div class="section-head">
-      <p class="kicker">Runs on your machine</p>
-      <h2>Your accounts, your machine, your kill switch.</h2>
-      <p>The Command Center runs inside NinjaTrader on your own PC or VPS. Your broker and prop-firm connections stay where they are. There's no cloud server holding your logins and trading your accounts for you.</p>
-    </div>
-    <div class="split">
-      <div>
-        <h3 class="yes">What it does</h3>
-        <ul class="plain-list">
-          <li>Copies the trades <strong>you</strong> place — or your own NinjaTrader strategies place — to your other accounts.</li>
-          <li>Enforces the limits <strong>you</strong> set for each account.</li>
-          <li>Gives you one place to see and control every account.</li>
-        </ul>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="/" aria-label="Silent Service Trading — home"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+  <rect x="1" y="1" width="30" height="30" rx="8" fill="#141B26" stroke="#2C3A52"/>
+  <circle cx="16" cy="16" r="9.5" fill="none" stroke="#5B8DB8" stroke-width="1.6" stroke-opacity=".55"/>
+  <circle cx="16" cy="16" r="5" fill="none" stroke="#5B8DB8" stroke-width="1.6"/>
+  <path d="M16 16 L23.5 9.5" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="16" cy="16" r="1.8" fill="#38BDF8"/>
+</svg><span class="logo-text"><strong>Silent Service Trading</strong><span>by The Submarine Vet</span></span></a>
+        <p>Command Center: one NinjaTrader&nbsp;8 workspace for trading, monitoring and reviewing every account you run.</p>
       </div>
-      <div>
-        <h3 class="no">What it doesn't do</h3>
-        <ul class="plain-list">
-          <li>No signals, no "done for you" trading. You decide every trade.</li>
-          <li>No promises of profit. Futures can lose money fast — that's why it exists.</li>
-          <li>It doesn't replace your firm's own rules. Read them; some firms restrict copiers.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="how">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="kicker">How it works</p>
-      <h2>From checkout to your first copied trade.</h2>
-    </div>
-    <ol class="steps">
-      <li><strong>Subscribe</strong>Your license key arrives by email.</li>
-      <li><strong>Install</strong>Import the add-on into NinjaTrader 8 and enter the key.</li>
-      <li><strong>Set your rules</strong>Add each account's prop-firm limits and build your copier group.</li>
-      <li><strong>Start on Sim</strong>Run it on simulation accounts first. Go live when you trust it.</li>
-    </ol>
-  </div>
-</section>
-
-<section id="early-access">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="kicker">Early access · founder pricing</p>
-      <h2>A small first crew.</h2>
-      <p>The first release goes to a small group of traders. Founder prices stay with you for as long as you stay subscribed. You get direct support from the developer, and your feedback shapes what's built next.</p>
-    </div>
-    <div class="price-grid">
-      <div class="price-card">
-        <h3>Monthly</h3>
-        <p class="price">$149.99<span>/ month</span></p>
-        <p class="price-note">Cancel anytime.</p>
+      <div class="foot-col">
+        <h2>Product</h2>
         <ul>
-          <li>Silent Service Command Center</li>
-          <li>All updates while subscribed</li>
-          <li>Up to 2 machines</li>
+          <li><a href="/command-center/">Command Center</a></li>
+          <li><a href="/command-center/#trade">Features</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
         </ul>
-        <a class="btn btn-ghost js-buy" data-plan="monthly" href="mailto:thesubmarineveteran@gmail.com?subject=Command%20Center%20early%20access&body=Plan%3A%20Monthly">Start monthly</a>
       </div>
-      <div class="price-card">
-        <h3>Annual <span class="tag">Save 20%</span></h3>
-        <p class="price">$1,439.90<span>/ year</span></p>
-        <p class="price-note">$119.99 a month, paid yearly.</p>
+      <div class="foot-col">
+        <h2>Company</h2>
         <ul>
-          <li>Everything in Monthly</li>
-          <li>Saves $360 a year vs monthly</li>
-          <li>Up to 2 machines</li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/about/#follow">Follow</a></li>
         </ul>
-        <a class="btn btn-ghost js-buy" data-plan="annual" href="mailto:thesubmarineveteran@gmail.com?subject=Command%20Center%20early%20access&body=Plan%3A%20Annual">Start annual</a>
       </div>
-      <div class="price-card featured">
-        <h3>Lifetime <span class="tag soon">First 25 only</span></h3>
-        <p class="price">$2,999<span>once</span></p>
-        <p class="price-note">Pay once. Never billed again.</p>
+      <div class="foot-col">
+        <h2>Support</h2>
         <ul>
-          <li><strong>Every future upgrade</strong> of the Command Center</li>
-          <li><strong>Every bot</strong> (automated strategy) we release</li>
-          <li><strong>Every playbook</strong> we release</li>
-          <li>Up to 2 machines</li>
+          <li><a href="/support/#getting-started">Getting started</a></li>
+          <li><a href="/support/#faq">FAQ</a></li>
+          <li><a href="mailto:thesubmarineveteran@gmail.com">Email support</a></li>
         </ul>
-        <a class="btn btn-primary js-buy" data-plan="lifetime" href="mailto:thesubmarineveteran@gmail.com?subject=Command%20Center%20early%20access&body=Plan%3A%20Lifetime">Claim a lifetime seat</a>
       </div>
     </div>
-    <div class="stat-panel price-reqs">
-      <div class="row"><span>Platform</span><span>NinjaTrader 8</span></div>
-      <div class="row"><span>System</span><span>Windows PC / VPS</span></div>
-      <div class="row"><span>Markets</span><span>CME futures</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="faq" class="faq">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="kicker">FAQ</p>
-      <h2>Straight answers.</h2>
-    </div>
-    <details>
-      <summary>Does it trade for me?</summary>
-      <p>No. You place the trades — by hand, or with your own NinjaTrader strategies. The Command Center copies them to your other accounts and enforces the limits you set. Playbooks, when they arrive, only alert and mark the chart.</p>
-    </details>
-    <details>
-      <summary>Is it allowed by my prop firm?</summary>
-      <p>Rules differ by firm, and they change. Some firms allow copiers across your own accounts, some restrict them, and some limit automated trading. Check your firm's current rules before you copy to its accounts. You're responsible for following them.</p>
-    </details>
-    <details>
-      <summary>Does my computer need to stay on?</summary>
-      <p>Yes. It runs inside NinjaTrader, so NinjaTrader has to be open and connected while you trade. Many traders use a Windows VPS for this.</p>
-    </details>
-    <details>
-      <summary>Which brokers and accounts does it work with?</summary>
-      <p>Any account you can trade in NinjaTrader 8 — including the prop-firm accounts connected there and NinjaTrader's simulation accounts.</p>
-    </details>
-    <details>
-      <summary>Can I try it without risking money?</summary>
-      <p>Yes, and you should. Set it up on NinjaTrader simulation accounts first, test your copier group and rules, then move to live accounts.</p>
-    </details>
-    <details>
-      <summary>What does Lifetime include?</summary>
-      <p>One payment, never billed again. You get every future upgrade of the Command Center, plus every bot (automated strategy) and every playbook Silent Service Trading releases, for as long as they're offered. Only the first 25 lifetime seats are sold at this price.</p>
-    </details>
-    <details>
-      <summary>What happens if I cancel?</summary>
-      <p>Monthly and annual plans run to the end of the period you paid for. After that the Command Center won't start new sessions. Nothing about your NinjaTrader accounts or their positions is changed.</p>
-    </details>
-    <details>
-      <summary>Can I switch plans?</summary>
-      <p>Yes. Email us and we'll help you move between monthly, annual and Lifetime.</p>
-    </details>
-    <details>
-      <summary>Do you see my account data?</summary>
-      <p>No. Your accounts, balances and positions stay inside NinjaTrader on your machine. The license check sends only your license key and a machine ID.</p>
-    </details>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <p class="disclaimer">Silent Service Command Center is a software tool, not financial advice. Trading futures involves substantial risk of loss and is not suitable for every investor. You are responsible for every order placed on your accounts and for following your broker's and prop firm's rules. Past or hypothetical performance does not guarantee future results. Test on simulation accounts first.</p>
-    <div class="foot-row">
-      <span>&copy; <span id="year"></span> Silent Service Trading · by <a href="/">The Submarine Vet</a></span>
+    <p class="disclaimer">Silent Service Command Center is a software tool, not financial advice. Futures trading involves substantial risk of loss and is not suitable for every investor. You are responsible for every order placed on your accounts and for following your broker's and prop firm's rules, including rules on trade copiers and automated trading. Past or hypothetical performance does not guarantee future results. Test on simulation accounts first.</p>
+    <p class="disclaimer">NinjaTrader is a registered trademark of NinjaTrader Group, LLC. Silent Service Trading is not affiliated with or endorsed by NinjaTrader or any prop firm.</p>
+    <div class="foot-bottom">
+      <span>&copy; <span data-year>2026</span> The Submarine Vet · Silent Service Trading</span>
       <a href="mailto:thesubmarineveteran@gmail.com">thesubmarineveteran@gmail.com</a>
     </div>
   </div>
 </footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  // Stripe payment links. Paste each link between the quotes; an empty one keeps that button on email.
-  var BUY = {
-    monthly:  'https://buy.stripe.com/28EaEWba9bwtcDM0x0gnK00',
-    annual:   'https://buy.stripe.com/14A7sK0vvfMJ6fo3JcgnK01',
-    lifetime: 'https://buy.stripe.com/8x2eVca65cAxavEfrUgnK02'
-  };
-  document.querySelectorAll('.js-buy').forEach(function (a) {
-    var url = BUY[a.getAttribute('data-plan')];
-    if (url) a.href = url;
-  });
-</script>
 </body>
 </html>

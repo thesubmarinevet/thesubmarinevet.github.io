@@ -1,228 +1,293 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Submarine Vet — Instruments over instinct · Silent Service Trading</title>
-<meta name="description" content="Futures trading automation, indicators, and NinjaTrader development, run on submarine-service discipline. Instruments over instinct.">
-<meta property="og:title" content="The Submarine Vet">
-<meta property="og:description" content="Instruments over instinct: futures automation, indicators, and NinjaTrader — discipline first, noise ignored.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Command Center for NinjaTrader 8 | Silent Service Trading</title>
+<meta name="description" content="One NinjaTrader 8 workspace to manage trading accounts, monitor positions, follow playbooks and review performance. Command Center early access is open.">
+<link rel="canonical" href="https://thesubmarinevet.com/">
+<meta name="theme-color" content="#0B1220">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Silent Service Trading">
+<meta property="og:title" content="Command Center for NinjaTrader 8 | Silent Service Trading">
+<meta property="og:description" content="One NinjaTrader 8 workspace to manage trading accounts, monitor positions, follow playbooks and review performance. Command Center early access is open.">
+<meta property="og:url" content="https://thesubmarinevet.com/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;650;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Silent Service Trading","url":"https://thesubmarinevet.com/","parentOrganization":{"@type":"Organization","name":"The Submarine Vet"},"email":"thesubmarineveteran@gmail.com","sameAs":["https://x.com/thesubmarinevet","https://www.youtube.com/@thesubmarinevet","https://www.instagram.com/thesubmarinevet","https://www.facebook.com/thesubmarinevet","https://www.tiktok.com/@thesubmarinevet","https://www.threads.net/@thesubmarinevet","https://www.tradingview.com/u/thesubmarinevet/"]},{"@type":"SoftwareApplication","name":"Silent Service Command Center","applicationCategory":"FinanceApplication","operatingSystem":"Windows (NinjaTrader 8)","url":"https://thesubmarinevet.com/command-center/","offers":[{"@type":"Offer","name":"Monthly","price":"149.99","priceCurrency":"USD","url":"https://thesubmarinevet.com/pricing/"},{"@type":"Offer","name":"Annual","price":"1439.90","priceCurrency":"USD","url":"https://thesubmarinevet.com/pricing/"},{"@type":"Offer","name":"Lifetime","price":"2999.00","priceCurrency":"USD","url":"https://thesubmarinevet.com/pricing/"}]}]}</script>
 </head>
 <body>
-
-<nav>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
   <div class="wrap">
-    <a class="brand" href="#top"><span class="dot"></span>THE SUBMARINE VET</a>
-    <div class="navlinks">
-      <a href="#lexicon">Lexicon</a>
-      <a href="#about">About</a>
-      <a href="#follow">Follow</a>
-      <a class="nav-cta" href="/command-center/">Command Center</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero" id="top">
-  <div class="hero-mark" aria-hidden="true">
-    <svg viewBox="0 0 800 800">
-      <circle cx="400" cy="400" r="360" fill="none" stroke="#39e7a5" stroke-opacity="0.10" stroke-width="5"/>
-      <circle cx="400" cy="400" r="290" fill="none" stroke="#39e7a5" stroke-opacity="0.18" stroke-width="5"/>
-      <circle cx="400" cy="400" r="220" fill="none" stroke="#39e7a5" stroke-opacity="0.30" stroke-width="5"/>
-      <circle cx="400" cy="400" r="150" fill="none" stroke="#39e7a5" stroke-opacity="0.50" stroke-width="5"/>
-      <g transform="translate(400,392) scale(1.1)" fill="#39e7a5" style="filter:drop-shadow(0 0 26px rgba(57,231,165,0.55));">
-        <path d="M -150,0
-                 C -150,-16 -125,-26 -95,-27
-                 L 70,-27
-                 C 96,-27 108,-21 116,-10
-                 L 138,-4
-                 C 146,-2 146,2 138,4
-                 L 116,10
-                 C 108,21 96,27 70,27
-                 L -95,27
-                 C -125,26 -150,16 -150,0
-                 Z"/>
-        <path d="M -34,-27
-                 L -34,-64
-                 C -34,-73 -26,-78 -14,-78
-                 L 6,-78
-                 C 16,-78 22,-72 22,-63
-                 L 22,-27
-                 Z"/>
-        <rect x="-17" y="-96" width="5" height="20" rx="2"/>
-        <rect x="1" y="-90" width="5" height="14" rx="2"/>
-        <path d="M 108,-9 L 130,-22 L 134,-16 L 114,-4 Z"/>
-        <path d="M 108,9 L 130,22 L 134,16 L 114,4 Z"/>
-      </g>
-    </svg>
-  </div>
-  <div class="wrap">
-    <p class="kicker">Futures // Automation, Indicators &amp; NinjaTrader</p>
-    <h1>Instruments over instinct.</h1>
-    <p class="lede">Discipline first, noise ignored — built literally, not just as a metaphor: automated systems and indicators in NinjaTrader instead of gut calls. Most trading content sells excitement. This one sells composure under pressure and tools that actually work.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="/command-center/">See the Command Center</a>
-      <a class="btn btn-ghost" href="#lexicon">Read the lexicon</a>
-    </div>
+    <a class="logo" href="/" aria-label="Silent Service Trading — home">
+      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+  <rect x="1" y="1" width="30" height="30" rx="8" fill="#141B26" stroke="#2C3A52"/>
+  <circle cx="16" cy="16" r="9.5" fill="none" stroke="#5B8DB8" stroke-width="1.6" stroke-opacity=".55"/>
+  <circle cx="16" cy="16" r="5" fill="none" stroke="#5B8DB8" stroke-width="1.6"/>
+  <path d="M16 16 L23.5 9.5" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="16" cy="16" r="1.8" fill="#38BDF8"/>
+</svg>
+      <span class="logo-text"><strong>Silent Service Trading</strong><span>by The Submarine Vet</span></span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/command-center/">Command Center</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/about/">About</a>
+      <a href="/support/">Support</a>
+      <a class="btn btn-primary btn-sm" href="/pricing/">Get Command Center</a>
+    </nav>
   </div>
 </header>
-
-<section id="positioning">
-  <div class="wrap">
-    <p><strong>The Submarine Vet</strong> is built on one idea: the operating discipline that keeps a submarine crew alive is the same discipline that keeps a trading account alive. Silent running instead of overtrading. Reading instruments instead of guessing. Patience through long stretches of nothing, punctuated by moments that actually matter. No hype, no guru framing, no promises of returns — just the process, told straight, wins and losses both.</p>
-    <p>Futures only. The focus here is building the actual instruments — automated strategies, custom indicators, and NinjaTrader development — not just talking about trades after the fact.</p>
+<main id="main">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Command Center for NinjaTrader&nbsp;8</p>
+      <h1>Command Your Trading.<br><span class="accent">Stay in Control.</span></h1>
+      <p class="lead">One integrated NinjaTrader&nbsp;8 workspace for managing trading accounts, monitoring positions, following playbooks, and reviewing performance.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/pricing/">See pricing</a>
+        <a class="btn btn-secondary" href="/command-center/">Take the tour</a>
+      </div>
+      <p class="hero-note">Early access now open · Runs inside NinjaTrader on your own PC</p>
+    </div>
+    <div>
+<figure class="shot">
+  <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>Silent Service Command Center</span></div>
+  <!-- SCREENSHOT TO ADD: /assets/img/cc-workspace.png  — replace the div below with:
+       <img src="/assets/img/cc-workspace.png" alt="The Command Center workspace in NinjaTrader 8 with the Trade Console, accounts panel and chart" width="1600" height="1000" loading="lazy"> -->
+  <div class="shot-placeholder" role="img" aria-label="The Command Center workspace in NinjaTrader 8 with the Trade Console, accounts panel and chart (screenshot coming soon)">
+    <strong>Command Center workspace</strong>
+    <span>Screenshot coming soon</span>
   </div>
-</section>
-
-<section id="silent-service" class="sst-band">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="kicker brass">Silent Service Trading</p>
-      <h2>The instruments, built.</h2>
-      <p>Silent Service Trading is where the tools come from. The first one is the <strong>Silent Service Command Center</strong>: one console inside NinjaTrader 8 for traders running several prop accounts — a trade copier, your prop-firm rules enforced automatically, and a one-click kill switch.</p>
-    </div>
-    <div class="sst-points">
-      <div><h3>Trade copier</h3><p>Per-account size, contract caps, minis to micros, and a daily loss lock on every follower.</p></div>
-      <div><h3>Prop-firm rules</h3><p>Hit a limit and that account locks and flattens. No more watching five dashboards.</p></div>
-      <div><h3>Flatten all</h3><p>One click: copier off, every position closed, every order cancelled.</p></div>
-    </div>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="/command-center/">See the Command Center</a>
-      <a class="btn btn-ghost" href="/command-center/#early-access">Early access</a>
-    </div>
-  </div>
-</section>
-
-<section id="lexicon">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="kicker">The Lexicon</p>
-      <h2>Submarine ops, translated to trading discipline.</h2>
-      <p>The vocabulary behind every post here. Learn these once — everything else builds on them.</p>
-    </div>
-    <div class="lex-grid">
-      <div class="lex-card">
-        <p class="lex-term">Silent Running</p>
-        <p>Staying out of a trade. Sitting on hands. The default state, not a failure state.</p>
-      </div>
-      <div class="lex-card">
-        <p class="lex-term">Periscope Depth</p>
-        <p>Checking the setup before committing — a brief, deliberate look before exposure.</p>
-      </div>
-      <div class="lex-card">
-        <p class="lex-term">Rig for Dive</p>
-        <p>The pre-trade checklist and risk sizing, done the same way every single time.</p>
-      </div>
-      <div class="lex-card">
-        <p class="lex-term">Autopilot</p>
-        <p>A strategy running live and unattended — engaged, not just built. Trusting the rig instead of hovering over it.</p>
-      </div>
-      <div class="lex-card">
-        <p class="lex-term">Depth Charge</p>
-        <p>A news event or volatility spike that can wreck an undisciplined position.</p>
-      </div>
-      <div class="lex-card">
-        <p class="lex-term">Battle Stations</p>
-        <p>A confirmed, high-conviction setup — worth actually acting on.</p>
-      </div>
-      <div class="lex-card">
-        <p class="lex-term">Torpedoed</p>
-        <p>A stopped-out trade, discussed plainly, without spin. No highlight reel here.</p>
-      </div>
-      <div class="lex-card">
-        <p class="lex-term">Surface</p>
-        <p>Closing a position. Taking profit. Standing down.</p>
-      </div>
-      <div class="lex-card">
-        <p class="lex-term">The Boat</p>
-        <p>The account itself — something you're responsible for keeping afloat, not a scoreboard.</p>
-      </div>
+</figure>
     </div>
   </div>
 </section>
 
-<section id="about">
+<section class="strip" aria-label="Highlights">
+  <div class="wrap">
+    <ul>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5l16 14V5"/></svg>Built for NinjaTrader&nbsp;8</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Runs locally — your logins stay on your PC</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg>Prop-firm limits enforced per account</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>You place every trade</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">One workspace</p>
+      <h2>Everything a multi-account trader juggles, in one window.</h2>
+      <p>Command Center brings the four jobs of an active trading day together, so you stop switching between tabs, spreadsheets and dashboards.</p>
+    </div>
+    <div class="grid-4">
+      <a class="card" href="/command-center/#trade">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></div>
+        <h3>Trade</h3>
+        <p>Order entry, trims, ATM templates and a trade copier that sizes every follower on its own terms.</p>
+        <span class="more">Explore trade &rarr;</span>
+      </a>
+      <a class="card" href="/command-center/#monitor">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M7 12l2.5-3 2.5 2 4-4"/></svg></div>
+        <h3>Monitor</h3>
+        <p>Every account's day at a glance, prop-firm limits enforced automatically, connection and strategy status.</p>
+        <span class="more">Explore monitor &rarr;</span>
+      </a>
+      <a class="card" href="/command-center/#plan">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18" cy="16" r="3"/><path d="M20.2 18.2L22 20"/></svg></div>
+        <h3>Plan</h3>
+        <p>Market Read with the levels intraday traders draw by hand, plus playbooks that alert and mark the chart.</p>
+        <span class="more">Explore plan &rarr;</span>
+      </a>
+      <a class="card" href="/command-center/#review">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h5"/></svg></div>
+        <h3>Review</h3>
+        <p>A trade journal that records itself, with daily results, per-account views and an equity curve.</p>
+        <span class="more">Explore review &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
   <div class="wrap">
     <div class="section-head">
-      <p class="kicker">About</p>
-      <h2>Real service. Real discipline.</h2>
+      <p class="eyebrow">Walkthrough</p>
+      <h2>How a session runs in Command Center.</h2>
     </div>
-    <div class="about-grid">
+
+    <div class="row">
       <div>
-        <!-- Draft copy — swap in your own service background, boat/rate, and how you found your way to trading. Keep it plain and specific; that's what makes the credibility land. -->
-        <p>I spent years running submarines — reading instruments instead of guessing, staying disciplined through long stretches where nothing happens, and treating risk management as a survival habit rather than a slogan.</p>
-        <p>Markets reward the same discipline. Most trading content sells excitement; this is the opposite of that. No signals, no promises — a straight account of process, setups, and results, run the way a boat is run.</p>
+        <h3>Enter, manage and copy trades from one console.</h3>
+        <p>Place the trade once. Command Center copies it to your follower accounts, each with its own size and limits, and keeps every bracket on the instrument it was placed on.</p>
+        <ul class="checks">
+          <li>Buy, sell, reverse, close and trim ¼ or ½ in one click</li>
+          <li>Use your own NinjaTrader ATM templates</li>
+          <li>Copy minis as micros, with contract caps per account</li>
+          <li>FLATTEN ALL ACCOUNTS when you need everything closed now</li>
+        </ul>
       </div>
-      <div class="stat-panel">
-        <div class="row"><span>Market</span><span>Futures only</span></div>
-        <div class="row"><span>Platform</span><span>NinjaTrader</span></div>
-        <div class="row"><span>Approach</span><span>Automation &amp; discipline</span></div>
-        <div class="row"><span>Building</span><span><a href="/command-center/" style="text-decoration:none">Command Center</a></span></div>
+<figure class="shot">
+  <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>Silent Service Command Center</span></div>
+  <!-- SCREENSHOT TO ADD: /assets/img/cc-trade.png  — replace the div below with:
+       <img src="/assets/img/cc-trade.png" alt="The Trade Console with order buttons, trims and the copier status" width="1600" height="1000" loading="lazy"> -->
+  <div class="shot-placeholder" role="img" aria-label="The Trade Console with order buttons, trims and the copier status (screenshot coming soon)">
+    <strong>Trade Console and trade copier</strong>
+    <span>Screenshot coming soon</span>
+  </div>
+</figure>
+    </div>
+
+    <div class="row flip">
+      <div>
+        <h3>Watch every account, and let the rules enforce themselves.</h3>
+        <p>Enter each prop account's limits once. When an account reaches its daily loss or drawdown limit, Command Center locks it and flattens it — even if you're not watching.</p>
+        <ul class="checks">
+          <li>Day P&amp;L and balance for every account, sortable</li>
+          <li>Drawdown, daily limits and consistency per account</li>
+          <li>Connection and copier status always in view</li>
+        </ul>
       </div>
+<figure class="shot">
+  <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>Silent Service Command Center</span></div>
+  <!-- SCREENSHOT TO ADD: /assets/img/cc-monitor.png  — replace the div below with:
+       <img src="/assets/img/cc-monitor.png" alt="The accounts panel and prop-firm rules table" width="1600" height="1000" loading="lazy"> -->
+  <div class="shot-placeholder" role="img" aria-label="The accounts panel and prop-firm rules table (screenshot coming soon)">
+    <strong>Accounts and prop-firm rules</strong>
+    <span>Screenshot coming soon</span>
+  </div>
+</figure>
+    </div>
+
+    <div class="row">
+      <div>
+        <h3>Plan the session, then review it.</h3>
+        <p>Market Read puts the day's key levels on the chart. After the close, the journal has already recorded every trade, so review starts with the facts.</p>
+        <ul class="checks">
+          <li>Prior day, session and opening-range levels, VWAP and POC</li>
+          <li>Playbooks that alert and mark the chart — never place orders</li>
+          <li>Daily results, per-account views and an equity curve</li>
+        </ul>
+      </div>
+<figure class="shot">
+  <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>Silent Service Command Center</span></div>
+  <!-- SCREENSHOT TO ADD: /assets/img/cc-plan-review.png  — replace the div below with:
+       <img src="/assets/img/cc-plan-review.png" alt="The chart with Market Read levels next to the trade journal" width="1600" height="1000" loading="lazy"> -->
+  <div class="shot-placeholder" role="img" aria-label="The chart with Market Read levels next to the trade journal (screenshot coming soon)">
+    <strong>Market Read and trade journal</strong>
+    <span>Screenshot coming soon</span>
+  </div>
+</figure>
     </div>
   </div>
 </section>
 
-<section id="follow">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="kicker">Follow</p>
-      <h2>Same handle, everywhere.</h2>
-      <p>@thesubmarinevet across every platform below.</p>
+<section class="section">
+  <div class="wrap founder">
+    <div class="founder-mark" aria-hidden="true">
+      <svg viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="88" fill="none" stroke="#5B8DB8" stroke-opacity=".18" stroke-width="2"/>
+        <circle cx="100" cy="100" r="62" fill="none" stroke="#5B8DB8" stroke-opacity=".32" stroke-width="2"/>
+        <circle cx="100" cy="100" r="36" fill="none" stroke="#5B8DB8" stroke-opacity=".55" stroke-width="2"/>
+        <path d="M100 100 L162 48" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="100" cy="100" r="6" fill="#38BDF8"/>
+      </svg>
     </div>
-    <div class="follow-grid">
-      <a class="follow-card" href="https://x.com/thesubmarinevet" target="_blank" rel="noopener">
-        <span class="follow-plat">X</span>
-        <span class="follow-handle">@thesubmarinevet</span>
-      </a>
-      <a class="follow-card" href="https://instagram.com/thesubmarinevet" target="_blank" rel="noopener">
-        <span class="follow-plat">Instagram</span>
-        <span class="follow-handle">@thesubmarinevet</span>
-      </a>
-      <a class="follow-card" href="https://tiktok.com/@thesubmarinevet" target="_blank" rel="noopener">
-        <span class="follow-plat">TikTok</span>
-        <span class="follow-handle">@thesubmarinevet</span>
-      </a>
-      <a class="follow-card" href="https://youtube.com/@thesubmarinevet" target="_blank" rel="noopener">
-        <span class="follow-plat">YouTube</span>
-        <span class="follow-handle">@thesubmarinevet</span>
-      </a>
-      <a class="follow-card" href="https://facebook.com/thesubmarinevet" target="_blank" rel="noopener">
-        <span class="follow-plat">Facebook</span>
-        <span class="follow-handle">@thesubmarinevet</span>
-      </a>
-      <a class="follow-card" href="https://www.tradingview.com/u/thesubmarinevet/" target="_blank" rel="noopener">
-        <span class="follow-plat">TradingView</span>
-        <span class="follow-handle">@thesubmarinevet</span>
-      </a>
-      <a class="follow-card" href="https://threads.net/@thesubmarinevet" target="_blank" rel="noopener">
-        <span class="follow-plat">Threads</span>
-        <span class="follow-handle">@thesubmarinevet</span>
-      </a>
-      <a class="follow-card" href="mailto:thesubmarineveteran@gmail.com">
-        <span class="follow-plat">Email</span>
-        <span class="follow-handle">thesubmarineveteran@gmail.com</span>
-      </a>
+    <div>
+      <p class="eyebrow">The founder</p>
+      <h2>Built by a submarine veteran who trades.</h2>
+      <p>On a submarine, you don't steer by feel. You read your instruments, follow procedure and keep the boat inside its limits through long, quiet stretches and sudden ones.</p>
+      <p>Command Center was built by The Submarine Vet for his own futures trading on NinjaTrader — the tool he wanted when running several funded accounts at once. Silent Service Trading is where that tool, and the ones that follow, now live.</p>
+      <blockquote class="quote">Instruments over instinct.</blockquote>
+      <p style="margin-top:24px"><a href="/about/">Read the story &rarr;</a></p>
     </div>
   </div>
 </section>
 
-<footer>
+<section class="section section-alt">
   <div class="wrap">
-    <p class="disclaimer">Educational content only. Nothing here is financial advice or a signal to trade. Futures trading involves substantial risk of loss and isn't suitable for every investor. Backtested or hypothetical results for any automated strategy or indicator, where discussed, have inherent limitations and are not a guarantee of future or live performance.</p>
-    <div class="foot-row">
-      <span>&copy; <span id="year"></span> The Submarine Vet · <a href="/command-center/">Silent Service Trading</a></span>
+    <div class="section-head center">
+      <p class="eyebrow">Pricing</p>
+      <h2>Founder pricing for early access.</h2>
+      <p>Monthly, annual, or a limited lifetime license. Every plan includes all Command Center updates.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card"><h3>Monthly</h3><p class="price">$149.99<small>/ month</small></p><p class="price-note">Cancel anytime.</p></div>
+      <div class="card"><h3>Annual</h3><p class="price">$1,439.90<small>/ year</small></p><p class="price-note">$119.99 a month — save 20%.</p></div>
+      <div class="card"><h3>Lifetime</h3><p class="price">$2,999<small>once</small></p><p class="price-note">First 25 seats. Includes every future bot and playbook.</p></div>
+    </div>
+    <div class="btn-row" style="justify-content:center;margin-top:32px"><a class="btn btn-primary" href="/pricing/">Compare plans</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Take command of every account.</h2>
+      <p>Join the early-access crew, set it up on simulation accounts, and go live when you trust it.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/pricing/">Get Command Center</a>
+        <a class="btn btn-secondary" href="/support/#getting-started">How setup works</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="/" aria-label="Silent Service Trading — home"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+  <rect x="1" y="1" width="30" height="30" rx="8" fill="#141B26" stroke="#2C3A52"/>
+  <circle cx="16" cy="16" r="9.5" fill="none" stroke="#5B8DB8" stroke-width="1.6" stroke-opacity=".55"/>
+  <circle cx="16" cy="16" r="5" fill="none" stroke="#5B8DB8" stroke-width="1.6"/>
+  <path d="M16 16 L23.5 9.5" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="16" cy="16" r="1.8" fill="#38BDF8"/>
+</svg><span class="logo-text"><strong>Silent Service Trading</strong><span>by The Submarine Vet</span></span></a>
+        <p>Command Center: one NinjaTrader&nbsp;8 workspace for trading, monitoring and reviewing every account you run.</p>
+      </div>
+      <div class="foot-col">
+        <h2>Product</h2>
+        <ul>
+          <li><a href="/command-center/">Command Center</a></li>
+          <li><a href="/command-center/#trade">Features</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/about/#follow">Follow</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h2>Support</h2>
+        <ul>
+          <li><a href="/support/#getting-started">Getting started</a></li>
+          <li><a href="/support/#faq">FAQ</a></li>
+          <li><a href="mailto:thesubmarineveteran@gmail.com">Email support</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="disclaimer">Silent Service Command Center is a software tool, not financial advice. Futures trading involves substantial risk of loss and is not suitable for every investor. You are responsible for every order placed on your accounts and for following your broker's and prop firm's rules, including rules on trade copiers and automated trading. Past or hypothetical performance does not guarantee future results. Test on simulation accounts first.</p>
+    <p class="disclaimer">NinjaTrader is a registered trademark of NinjaTrader Group, LLC. Silent Service Trading is not affiliated with or endorsed by NinjaTrader or any prop firm.</p>
+    <div class="foot-bottom">
+      <span>&copy; <span data-year>2026</span> The Submarine Vet · Silent Service Trading</span>
       <a href="mailto:thesubmarineveteran@gmail.com">thesubmarineveteran@gmail.com</a>
     </div>
   </div>
 </footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 </body>
 </html>
