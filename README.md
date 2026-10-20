@@ -15,6 +15,6 @@ A single-page landing site: `index.html` with everything inline (no build step, 
 
 ## Editing
 
-Everything is in `index.html` — no separate CSS/JS files. The one section worth personalizing before this goes live is **About** (search for the HTML comment `<!-- Draft copy -->`): it's a reasonable placeholder in the brand voice, but it should carry your actual service background (boat/rate, years, how trading came into it) rather than staying generic.
+Pages: `index.html` (The Submarine Vet) and `command-center/index.html` (Silent Service Command Center). Shared styles are in `assets/site.css`. To switch the Early access buttons from email to the store checkout, paste the checkout link into `CHECKOUT_URL` near the bottom of `command-center/index.html`. The one section worth personalizing before this goes live is **About** (search for the HTML comment `<!-- Draft copy -->`): it's a reasonable placeholder in the brand voice, but it should carry your actual service background (boat/rate, years, how trading came into it) rather than staying generic.
 
 The lexicon terms and the follow-grid links match what's tracked in the project's `claude/30-day-launch-plan.md` doc — if a handle or platform changes, update both places.
