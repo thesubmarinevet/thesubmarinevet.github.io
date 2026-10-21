@@ -127,12 +127,20 @@ FOOTER = f"""<footer class="site-footer">
 </html>
 """
 
-def shot(label, file_hint, alt, bar="Silent Service Command Center"):
-    # Placeholder frame until the real screenshot (file_hint) is added.
+def shot(label, file_hint, alt, bar="Silent Service Command Center", eager=False):
+    # Real screenshot when /assets/img/<name>.webp exists, otherwise a placeholder frame.
+    name = file_hint.rsplit(".", 1)[0]
+    img = os.path.join(ROOT, "assets", "img", name + ".webp")
+    if os.path.exists(img):
+        from PIL import Image
+        w, h = Image.open(img).size
+        load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+        return f"""<figure class="shot shot-real">
+  <img src="/assets/img/{name}.webp" alt="{alt}" width="{w}" height="{h}" {load} decoding="async">
+</figure>"""
     return f"""<figure class="shot">
   <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>{bar}</span></div>
-  <!-- SCREENSHOT TO ADD: /assets/img/{file_hint}  — replace the div below with:
-       <img src="/assets/img/{file_hint}" alt="{alt}" width="1600" height="1000" loading="lazy"> -->
+  <!-- SCREENSHOT TO ADD: /assets/img/{name}.webp (1600 px wide, Sim accounts or names blurred) -->
   <div class="shot-placeholder" role="img" aria-label="{alt} (screenshot coming soon)">
     <strong>{label}</strong>
     <span>Screenshot coming soon</span>
@@ -199,7 +207,7 @@ home = f"""<section class="hero">
       <p class="hero-note">Early access now open · Runs inside NinjaTrader on your own PC</p>
     </div>
     <div>
-{shot("Command Center workspace", "cc-workspace.png", "The Command Center workspace in NinjaTrader 8 with the Trade Console, accounts panel and chart")}
+{shot("Command Center workspace", "cc-workspace.png", "Command Center View Screen: a 5-minute MNQ chart with session, pivot and POC levels beside the Trade Console", eager=True)}
     </div>
   </div>
 </section>
@@ -246,7 +254,7 @@ home = f"""<section class="hero">
           <li>FLATTEN ALL ACCOUNTS when you need everything closed now</li>
         </ul>
       </div>
-{shot("Trade Console and trade copier", "cc-trade.png", "The Trade Console with order buttons, trims and the copier status")}
+{shot("Trade copier", "cc-trade.png", "Copier tab: one lead account copied to many follower accounts, each with its own size, loss limit and profit target (account names blurred)")}
     </div>
 
     <div class="row flip">
@@ -259,7 +267,7 @@ home = f"""<section class="hero">
           <li>Connection and copier status always in view</li>
         </ul>
       </div>
-{shot("Accounts and prop-firm rules", "cc-monitor.png", "The accounts panel and prop-firm rules table")}
+{shot("Prop-firm rules", "cc-monitor.png", "Prop Rules tab: stage, drawdown, daily limits, room left and status for every account (account names blurred)")}
     </div>
 
     <div class="row">
@@ -272,7 +280,7 @@ home = f"""<section class="hero">
           <li>Daily results, per-account views and an equity curve</li>
         </ul>
       </div>
-{shot("Market Read and trade journal", "cc-plan-review.png", "The chart with Market Read levels next to the trade journal")}
+{shot("Trade journal", "cc-plan-review.png", "Trade Journal: daily results, every trade, results by account and an equity curve (account names blurred)")}
     </div>
   </div>
 </section>
@@ -385,7 +393,7 @@ cc = f"""<section class="page-hero">
       </div>
     </div>
     <div>
-{shot("Command Center workspace", "cc-workspace.png", "The Command Center workspace in NinjaTrader 8")}
+{shot("Command Center workspace", "cc-workspace.png", "Command Center View Screen with chart levels and the Trade Console", eager=True)}
     </div>
   </div>
 </section>

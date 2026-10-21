@@ -317,3 +317,5 @@ p a,li a,.faq a,.notice a{text-decoration:underline;text-underline-offset:3px;te
 .plan-flag{background:#2A2414;}
 .shot{margin:0;}
 .shot-bar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+.shot-real{background:#000;}
+.shot-real img{display:block;width:100%;height:auto;}
