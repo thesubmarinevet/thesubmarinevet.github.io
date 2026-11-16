@@ -4,12 +4,12 @@
 
   /* Live Stripe payment links. The ONLY place they're set on the site.
      Changing these changes where customers are charged — get approval first. */
-  /* Set to '' while the Stripe links still charge the old prices: the buttons then fall back
-     to email. Paste the new $49 / $500 / $1,999 payment links here once they exist in Stripe. */
+  /* Live Stripe payment links (launch 2026 prices: $49 / $500 / $1,999). The ONLY place they're set on the site.
+     Changing these changes where customers are charged — get approval first. */
   var BUY = {
-    monthly:  '',
-    annual:   '',
-    lifetime: ''
+    monthly:  'https://buy.stripe.com/6oU4gydih0RP6fo1B4gnK03',
+    annual:   'https://buy.stripe.com/3cI3cucedasp9rAgvYgnK04',
+    lifetime: 'https://buy.stripe.com/4gM7sKdihbwt33ca7AgnK05'
   };
 
   /* Old in-page anchors from the previous site → their new homes. */

@@ -28,7 +28,7 @@ Shared: `assets/site.css` (design), `assets/site.js` (menu, year, old-anchor red
 - `_backtests/nyopen-es.csv` and `nyopen-nq.csv` are NinjaTrader Strategy Analyzer trade exports. Replace them and rerun `build_site.py` to refresh the Automation page. The leading `_` keeps GitHub Pages (Jekyll) from publishing the raw files.
 
 ## Checkout (Stripe)
-- **Nov 2026:** `BUY` is empty (buttons email instead) until Stripe has payment links for the new $49 / $500 / $1,999 prices.
+- **Nov 15 2026:** `BUY` holds the launch-price links ($49 / $500 / $1,999; Lifetime limited to 25). Old $149.99 / $1,439.90 / $2,999 links are no longer used by the site.
 - The three Stripe payment links are set in **one place**: `BUY` at the top of `assets/site.js`. Buttons carry `data-plan="monthly|annual|lifetime"`; without JavaScript they fall back to email.
 - Changing a link changes where customers are charged — get approval first. Test any payment change in Stripe test mode.
 - Stripe sends buyers to `/command-center/thanks/` after payment. The Lifetime sold-out message points to `/command-center`.
