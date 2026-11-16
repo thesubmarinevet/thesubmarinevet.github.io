@@ -9,6 +9,7 @@ Static site on GitHub Pages: `main` is live at thesubmarinevet.com (`CNAME`). No
 |---|---|
 | `/` | `index.html` |
 | `/command-center/` | `command-center/index.html` |
+| `/automation/` | `automation/index.html` — NYOpen + backtests (stats built from `_backtests/*.csv`) |
 | `/pricing/` | `pricing/index.html` |
 | `/about/` | `about/index.html` |
 | `/support/` | `support/index.html` |
@@ -23,7 +24,11 @@ Shared: `assets/site.css` (design), `assets/site.js` (menu, year, old-anchor red
 - **Screenshots:** each placeholder frame has an HTML comment naming the file to add (e.g. `/assets/img/cc-workspace.png`). Use Sim accounts only — no real account names, numbers or balances.
 - **Feature status** on the features page (`/command-center/`): `a` = Available, `t` = In testing, `p` = Planned (in `build_site.py`). Keep it matching the build customers get.
 
+## Backtests
+- `_backtests/nyopen-es.csv` and `nyopen-nq.csv` are NinjaTrader Strategy Analyzer trade exports. Replace them and rerun `build_site.py` to refresh the Automation page. The leading `_` keeps GitHub Pages (Jekyll) from publishing the raw files.
+
 ## Checkout (Stripe)
+- **Nov 2026:** `BUY` is empty (buttons email instead) until Stripe has payment links for the new $49 / $500 / $1,999 prices.
 - The three Stripe payment links are set in **one place**: `BUY` at the top of `assets/site.js`. Buttons carry `data-plan="monthly|annual|lifetime"`; without JavaScript they fall back to email.
 - Changing a link changes where customers are charged — get approval first. Test any payment change in Stripe test mode.
 - Stripe sends buyers to `/command-center/thanks/` after payment. The Lifetime sold-out message points to `/command-center`.

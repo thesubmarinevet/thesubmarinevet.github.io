@@ -319,3 +319,27 @@ p a,li a,.faq a,.notice a{text-decoration:underline;text-underline-offset:3px;te
 .shot-bar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
 .shot-real{background:#000;}
 .shot-real img{display:block;width:100%;height:auto;}
+
+/* Automation page */
+.auto-head{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start;}
+.auto-head h2{margin:8px 0 14px;}
+.auto-head .checks{margin-top:22px;}
+.auto-price h3{font-size:22px;margin-bottom:12px;}
+.bt-grid{align-items:start;}
+.bt-head h3{margin-bottom:4px;}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;margin:20px 0;}
+.stat{background:var(--panel);padding:12px 14px;display:flex;flex-direction:column;gap:4px;}
+.stat span{font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;}
+.stat strong{font-family:var(--mono);font-size:18px;font-weight:500;color:var(--text);}
+.bt-curve{margin:0;}
+.curve{display:block;width:100%;height:160px;background:var(--navy-900);border:1px solid var(--border);border-radius:var(--radius-sm);}
+.bt-curve figcaption{margin-top:8px;}
+.bt-months{margin-top:18px;}
+.bt-months summary{cursor:pointer;font-weight:600;font-size:15px;}
+.bt-months table{margin-top:12px;width:100%;}
+.bt-months td.num{text-align:right;font-family:var(--mono);}
+.bt-months td.neg{color:#F87171;}
+.bt-notes{margin:40px 0 0;}
+.bt-notes ul{margin:8px 0 12px 18px;color:var(--text-muted);}
+.bt-notes li{margin-bottom:6px;}
+@media (max-width:860px){.auto-head{grid-template-columns:1fr;gap:32px;}}

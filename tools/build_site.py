@@ -27,7 +27,7 @@ ICONS = {
  "info": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>',
 }
 
-NAV = [("Home", "/"), ("Features", "/command-center/"), ("Pricing", "/pricing/"), ("About", "/about/"), ("Support", "/support/")]
+NAV = [("Home", "/"), ("Features", "/command-center/"), ("Automation", "/automation/"), ("Pricing", "/pricing/"), ("About", "/about/"), ("Support", "/support/")]
 
 DISCLAIMER = ("Silent Service Trading is a software tool, not financial advice. Futures trading involves substantial risk of loss and is not "
               "suitable for every investor. You are responsible for every order placed on your accounts and for following your broker's and "
@@ -95,6 +95,7 @@ FOOTER = f"""<footer class="site-footer">
         <h2>Product</h2>
         <ul>
           <li><a href="/command-center/">Features</a></li>
+          <li><a href="/automation/">Automation</a></li>
           <li><a href="/command-center/#requirements">Requirements</a></li>
           <li><a href="/pricing/">Pricing</a></li>
         </ul>
@@ -175,9 +176,9 @@ ld = {
     {"@type": "SoftwareApplication", "name": "Silent Service Trading", "applicationCategory": "FinanceApplication",
      "operatingSystem": "Windows (NinjaTrader 8)", "url": SITE + "/command-center/",
      "offers": [
-       {"@type": "Offer", "name": "Monthly", "price": "149.99", "priceCurrency": "USD", "url": SITE + "/pricing/"},
-       {"@type": "Offer", "name": "Annual", "price": "1439.90", "priceCurrency": "USD", "url": SITE + "/pricing/"},
-       {"@type": "Offer", "name": "Lifetime", "price": "2999.00", "priceCurrency": "USD", "url": SITE + "/pricing/"}]}
+       {"@type": "Offer", "name": "Monthly", "price": "49.00", "priceCurrency": "USD", "url": SITE + "/pricing/"},
+       {"@type": "Offer", "name": "Annual", "price": "500.00", "priceCurrency": "USD", "url": SITE + "/pricing/"},
+       {"@type": "Offer", "name": "Lifetime", "price": "1999.00", "priceCurrency": "USD", "url": SITE + "/pricing/"}]}
   ]}
 home_ld = '<script type="application/ld+json">' + json.dumps(ld, separators=(",", ":")) + "</script>\n"
 
@@ -314,12 +315,12 @@ home = f"""<section class="hero">
     <div class="section-head center">
       <p class="eyebrow">Pricing</p>
       <h2>Launch pricing.</h2>
-      <p>Monthly, annual, or a limited lifetime license. Every plan includes all SST updates.</p>
+      <p>Monthly, annual, or a limited lifetime license. Launch prices are offered through December&nbsp;31, 2026.</p>
     </div>
     <div class="grid-3">
-      <div class="card"><h3>Monthly</h3><p class="price">$149.99<small>/ month</small></p><p class="price-note">Cancel anytime.</p></div>
-      <div class="card"><h3>Annual</h3><p class="price">$1,439.90<small>/ year</small></p><p class="price-note">$119.99 a month — save 20%.</p></div>
-      <div class="card"><h3>Lifetime</h3><p class="price">$2,999<small>once</small></p><p class="price-note">First 25 seats. Includes every future bot and playbook.</p></div>
+      <div class="card"><h3>Monthly</h3><p class="price">$49<small>/ month</small></p><p class="price-note">Cancel anytime.</p></div>
+      <div class="card"><h3>Annual</h3><p class="price">$500<small>/ year</small></p><p class="price-note">$41.67 a month — save $88 (15%).</p></div>
+      <div class="card"><h3>Lifetime</h3><p class="price">$1,999<small>once</small></p><p class="price-note">First 25 seats. Includes every automated strategy and playbook.</p></div>
     </div>
     <div class="btn-row" style="justify-content:center;margin-top:32px"><a class="btn btn-primary" href="/pricing/">Compare plans</a></div>
   </div>
@@ -470,7 +471,7 @@ pricing = f"""<section class="page-hero">
   <div class="wrap">
     <p class="eyebrow">Pricing</p>
     <h1>Launch pricing.</h1>
-    <p class="lead">One product, three ways to pay. Every plan includes all SST updates while it's active.</p>
+    <p class="lead">One product, three ways to pay. Every plan includes all SST updates while it's active. Launch prices are offered through December&nbsp;31, 2026.</p>
   </div>
 </section>
 
@@ -480,7 +481,7 @@ pricing = f"""<section class="page-hero">
       {ICONS['info']}
       <div>
         <p><strong>Your license key and download link arrive by email after checkout.</strong></p>
-        <p class="muted">Launch prices stay with you for as long as you stay subscribed. Start on simulation accounts first.</p>
+        <p class="muted">Launch prices are offered through December&nbsp;31, 2026. Subscribe before then and your monthly or annual price stays the same for as long as your subscription stays active. Start on simulation accounts first.</p>
       </div>
     </div>
 
@@ -488,7 +489,7 @@ pricing = f"""<section class="page-hero">
       <div class="plan">
         <h2>Monthly</h2>
         <p class="plan-sub">Flexible. Cancel anytime.</p>
-        <p class="price">$149.99<small>/ month</small></p>
+        <p class="price">$49<small>/ month</small></p>
         <p class="price-note">Billed monthly.</p>
         <ul class="checks">
           <li>Silent Service Trading (SST) for NinjaTrader&nbsp;8</li>
@@ -500,12 +501,12 @@ pricing = f"""<section class="page-hero">
       </div>
       <div class="plan">
         <h2>Annual</h2>
-        <p class="plan-sub">Save 20% versus paying monthly.</p>
-        <p class="price">$1,439.90<small>/ year</small></p>
-        <p class="price-note">$119.99 a month, billed yearly · save 20%.</p>
+        <p class="plan-sub">Save 15% versus paying monthly.</p>
+        <p class="price">$500<small>/ year</small></p>
+        <p class="price-note">$41.67 a month, billed yearly · save 15%.</p>
         <ul class="checks">
           <li>Everything in Monthly</li>
-          <li>Saves $360 a year</li>
+          <li>Saves $88 a year</li>
           <li>Up to 2 machines</li>
           <li>Direct support from the developer</li>
         </ul>
@@ -515,11 +516,11 @@ pricing = f"""<section class="page-hero">
         <span class="plan-flag badge badge-planned">First 25 seats only</span>
         <h2>Lifetime</h2>
         <p class="plan-sub">Pay once. Never billed again.</p>
-        <p class="price">$2,999<small>one time</small></p>
+        <p class="price">$1,999<small>one time</small></p>
         <p class="price-note">Limited to the first 25 buyers.</p>
         <ul class="checks">
           <li>Every future SST upgrade</li>
-          <li>Every bot (automated strategy) we release</li>
+          <li>Every automated strategy we release, including NYOpen</li>
           <li>Every playbook we release</li>
           <li>Up to 2 machines</li>
         </ul>
@@ -546,9 +547,10 @@ pricing = f"""<section class="page-hero">
         <tbody>
           <tr><th scope="row">SST</th><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
           <tr><th scope="row">SST updates</th><td>While subscribed</td><td>While subscribed</td><td class="yes">Forever</td></tr>
-          <tr><th scope="row">Future bots and playbooks</th><td>Sold separately</td><td>Sold separately</td><td class="yes">Included</td></tr>
+          <tr><th scope="row">Automated strategies (<a href="/automation/">NYOpen</a>)</th><td>$39.99 / month each</td><td>$39.99 / month each</td><td class="yes">Included</td></tr>
+          <tr><th scope="row">Future playbooks</th><td>Sold separately</td><td>Sold separately</td><td class="yes">Included</td></tr>
           <tr><th scope="row">Machines per license</th><td>2</td><td>2</td><td>2</td></tr>
-          <tr><th scope="row">Billing</th><td>$149.99 monthly</td><td>$1,439.90 yearly</td><td>$2,999 once</td></tr>
+          <tr><th scope="row">Billing</th><td>$49 monthly</td><td>$500 yearly</td><td>$1,999 once</td></tr>
         </tbody>
       </table>
     </div>
@@ -559,7 +561,8 @@ pricing = f"""<section class="page-hero">
   <div class="wrap">
     <div class="section-head"><h2>Pricing questions</h2></div>
     <div class="faq">
-      <details><summary>What does Lifetime include?</summary><div><p>One payment, never billed again. You get every future upgrade of SST, plus every bot (automated strategy) and every playbook Silent Service Trading releases, for as long as they're offered. Only the first 25 lifetime seats are sold.</p></div></details>
+      <details><summary>What does Lifetime include?</summary><div><p>One payment, never billed again. You get every future upgrade of SST, plus every automated strategy and every playbook Silent Service Trading releases, for as long as they're offered. Only the first 25 lifetime seats are sold.</p></div></details>
+      <details><summary>How long do launch prices last?</summary><div><p>Launch prices are offered through December&nbsp;31, 2026. If you subscribe before then, your monthly or annual price stays the same for as long as your subscription stays active. If it lapses, a new subscription is at the price offered at that time.</p></div></details>
       <details><summary>What happens when I cancel?</summary><div><p>Monthly and annual plans run to the end of the period you've paid for. After that, SST won't start new sessions. Nothing about your NinjaTrader accounts or positions is changed.</p></div></details>
       <details><summary>Can I switch plans?</summary><div><p>Yes. <a href="mailto:{EMAIL}">Email us</a> and we'll help you move between monthly, annual and lifetime.</p></div></details>
       <details><summary>Is sales tax included?</summary><div><p>Tax is calculated at checkout based on where you are. Checkout and billing are handled securely by Stripe.</p></div></details>
@@ -569,8 +572,165 @@ pricing = f"""<section class="page-hero">
 </section>"""
 
 page("/pricing/", "Pricing — SST for NinjaTrader 8 | Silent Service Trading",
-     "Pricing for Silent Service Trading (SST): $149.99 monthly, $1,439.90 yearly, or a $2,999 lifetime license limited to the first 25 buyers.",
+     "Launch pricing for Silent Service Trading (SST): $49 monthly, $500 yearly, or a $1,999 lifetime license limited to the first 25 buyers.",
      "/pricing/", pricing)
+
+# ------------------------------------------------------------------ AUTOMATION
+import csv, datetime as _dt
+from collections import OrderedDict as _OD
+
+def _money(v):
+    v = v.strip().replace("$", "").replace(",", "")
+    neg = v.startswith("(")
+    v = float(v.strip("()"))
+    return -v if neg else v
+
+def backtest(csv_name):
+    """Stats from a NinjaTrader Strategy Analyzer trade export kept in _backtests/ (Jekyll does not publish _ folders)."""
+    rows = list(csv.DictReader(open(os.path.join(ROOT, "_backtests", csv_name), newline="")))
+    pnl = [_money(r["Profit"]) for r in rows]
+    fees = sum(_money(r[k]) for r in rows for k in ("Commission", "Clearing Fee", "Exchange Fee", "IP Fee", "NFA Fee"))
+    when = [_dt.datetime.strptime(r["Exit time"], "%m/%d/%Y %I:%M:%S %p") for r in rows]
+    eq = peak = dd = 0.0; curve = []; streak = worst = 0
+    for x in pnl:
+        eq += x; peak = max(peak, eq); dd = min(dd, eq - peak); curve.append(eq)
+        streak = streak + 1 if x < 0 else 0; worst = max(worst, streak)
+    wins = [x for x in pnl if x > 0]; losses = [x for x in pnl if x < 0]
+    months = _OD()
+    for t, x in zip(when, pnl):
+        k = t.strftime("%b %Y"); months[k] = months.get(k, 0) + x
+    return dict(instrument=rows[0]["Instrument"], qty=rows[0]["Qty"], first=when[0], last=when[-1], trades=len(pnl),
+                net=sum(pnl), win=len(wins) / len(pnl), pf=(sum(wins) / -sum(losses)) if losses else 0,
+                avgwin=sum(wins) / len(wins) if wins else 0, avgloss=sum(losses) / len(losses) if losses else 0,
+                maxdd=dd, avg=sum(pnl) / len(pnl), fees=fees, months=months, worst=worst, curve=curve)
+
+def _usd(x, dec=0):
+    s = f"${abs(x):,.{dec}f}"
+    return ("−" + s) if x < 0 else s
+
+def curve_svg(curve, label):
+    w, h, pad = 640, 200, 8
+    lo, hi = min(0, min(curve)), max(curve)
+    n = len(curve)
+    pts = [(0, 0)] + [(i + 1, v) for i, v in enumerate(curve)]
+    def xy(i, v):
+        return (pad + i * (w - 2 * pad) / n, h - pad - (v - lo) * (h - 2 * pad) / ((hi - lo) or 1))
+    line = " ".join(f"{x:.1f},{y:.1f}" for x, y in (xy(i, v) for i, v in pts))
+    x0, yb = xy(0, lo); xe, _ = xy(n, lo)
+    _, yz = xy(0, 0)
+    return f"""<svg class="curve" viewBox="0 0 {w} {h}" role="img" aria-label="{label}" preserveAspectRatio="none">
+  <line x1="{pad}" x2="{w - pad}" y1="{yz:.1f}" y2="{yz:.1f}" stroke="#243044" stroke-width="1"/>
+  <polygon points="{x0:.1f},{yb:.1f} {line} {xe:.1f},{yb:.1f}" fill="rgba(56,189,248,0.10)"/>
+  <polyline points="{line}" fill="none" stroke="#38BDF8" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>
+</svg>"""
+
+def bt_card(name, b):
+    tiles = [("Net profit", _usd(b["net"])), ("Trades", f'{b["trades"]}'), ("Win rate", f'{b["win"]*100:.0f}%'),
+             ("Profit factor", f'{b["pf"]:.2f}'), ("Max drawdown", _usd(b["maxdd"])), ("Avg trade", _usd(b["avg"], 2)),
+             ("Avg win / loss", f'{_usd(b["avgwin"])} / {_usd(b["avgloss"])}'), ("Longest losing run", f'{b["worst"]} trades')]
+    tiles_html = "\n".join(f'          <div class="stat"><span>{k}</span><strong>{v}</strong></div>' for k, v in tiles)
+    mrows = "\n".join(f'            <tr><th scope="row">{m}</th><td class="num{" neg" if v < 0 else ""}">{_usd(v)}</td></tr>' for m, v in b["months"].items())
+    period = f'{b["first"]:%b %-d} – {b["last"]:%b %-d, %Y}'
+    return f"""      <article class="bt card">
+        <header class="bt-head">
+          <h3>{name}</h3>
+          <p class="muted small">{b["instrument"]} · {b["qty"]} contract · {period}</p>
+        </header>
+        <div class="stats">
+{tiles_html}
+        </div>
+        <figure class="bt-curve">
+          {curve_svg(b["curve"], f"Equity curve for {name}: from $0 to {_usd(b['net'])} over {b['trades']} trades")}
+          <figcaption class="muted small">Cumulative profit per trade, before commissions, fees and slippage.</figcaption>
+        </figure>
+        <details class="bt-months"><summary>Results by month</summary>
+          <table>
+            <caption class="sr-only">{name} results by month</caption>
+            <tbody>
+{mrows}
+            </tbody>
+          </table>
+        </details>
+      </article>"""
+
+bt_es = backtest("nyopen-es.csv")
+bt_nq = backtest("nyopen-nq.csv")
+
+automation = f"""<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Automation</p>
+    <h1>Automated trading strategies.</h1>
+    <p class="lead">Rule-based strategies that run in NinjaTrader&nbsp;8 on your own PC, inside the same limits SST already enforces: prop rules, max micros and same-firm hedge protection.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="auto-head">
+      <div>
+        <p class="eyebrow">SilentService – NYOpen</p>
+        <h2>Trade the New York open breakout, the same way every day.</h2>
+        <p class="muted">NYOpen marks the overnight range and trades the first clean break of it after the New York open — one trade a day, with a fixed stop and target, flat before the close.</p>
+        <ul class="checks">
+          <li>Range: 3:00–9:30 AM ET</li>
+          <li>Entry: first break above or below the range, 9:30–11:00 AM ET</li>
+          <li>Fixed dollar stop and target per contract</li>
+          <li>One trade a day; flat by 3:55 PM ET</li>
+          <li>Turn each weekday on or off</li>
+          <li>ES and NQ (and their micros)</li>
+        </ul>
+      </div>
+      <div class="plan featured auto-price">
+        <span class="plan-flag badge badge-planned">Coming soon</span>
+        <h3>NYOpen</h3>
+        <p class="price">$39.99<small>/ month</small></p>
+        <p class="price-note">Add-on for an active SST subscription. Included with Lifetime.</p>
+        <a class="btn btn-primary btn-block" href="mailto:{EMAIL}?subject=NYOpen%20-%20let%20me%20know">Let me know when it's ready</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="backtests" style="scroll-margin-top:72px">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Backtests</p>
+      <h2>NYOpen on ES and NQ, 2026.</h2>
+      <p>NinjaTrader Strategy Analyzer, one contract, every trade from January&nbsp;2 to November&nbsp;13, 2026. Results are hypothetical — read the notes below them.</p>
+    </div>
+    <div class="grid-2 bt-grid">
+{bt_card("NYOpen · ES", bt_es)}
+{bt_card("NYOpen · NQ", bt_nq)}
+    </div>
+    <div class="notice bt-notes" role="note">
+      {ICONS['info']}
+      <div>
+        <p><strong>How to read these numbers.</strong></p>
+        <ul>
+          <li>Profits are before commissions, exchange fees and slippage. At a few dollars per round trip, about 200 trades cost several hundred dollars more than shown, and real fills — especially fast breakout fills — can be worse than the backtest's.</li>
+          <li>The strategy's settings were chosen with this same 2026 data in view. Results on data the settings never saw would likely be weaker.</li>
+          <li>The strategy is still being adjusted before release. These results will be replaced when the release version is tested.</li>
+        </ul>
+        <p class="muted small">Hypothetical performance results have many inherent limitations. No representation is made that any account will or is likely to achieve profits or losses similar to those shown. Hypothetical results are prepared with the benefit of hindsight, do not involve financial risk, and cannot account for factors such as the ability to keep trading through losses, liquidity, or execution. Actual results will differ, and can include losses greater than any shown here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Run it on Sim first.</h2>
+      <p>Every automated strategy should run on a simulation account before it touches a funded one — and your prop firm's rules on automated trading still apply.</p>
+      <div class="btn-row"><a class="btn btn-primary" href="/pricing/">See SST pricing</a><a class="btn btn-secondary" href="mailto:{EMAIL}?subject=NYOpen%20question">Ask a question</a></div>
+    </div>
+  </div>
+</section>"""
+
+page("/automation/", "Automation — NYOpen strategy for NinjaTrader 8 | Silent Service Trading",
+     "SilentService NYOpen: an automated New York open breakout strategy for ES and NQ on NinjaTrader 8, with 2026 backtests. $39.99 a month, included with Lifetime.",
+     "/automation/", automation)
+
 
 # ------------------------------------------------------------------ ABOUT
 socials = [("X", "https://x.com/thesubmarinevet"), ("YouTube", "https://youtube.com/@thesubmarinevet"),
