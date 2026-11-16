@@ -283,7 +283,7 @@ home = f"""<section class="hero">
           <li>P&amp;L net of fees, a monthly P&amp;L calendar and an equity curve</li>
         </ul>
       </div>
-{shot("Trade journal", "cc-plan-review.png", "Trade Journal: daily results, every trade, results by account and an equity curve (account names blurred)")}
+{shot("Trade journal", "cc-plan-review.png", "P&amp;L calendar: net result, trades and wins / losses for each day, with weekly totals (sample data)")}
     </div>
   </div>
 </section>
