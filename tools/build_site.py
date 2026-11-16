@@ -256,7 +256,7 @@ home = f"""<section class="hero">
           <li>FLATTEN ALL ACCOUNTS when you need everything closed now</li>
         </ul>
       </div>
-{shot("Trade copier", "cc-trade.png", "Copier tab: one lead account copied to many follower accounts, each with its own size, loss limit and profit target (account names blurred)")}
+{shot("Trade copier", "cc-trade.png", "Copier tab: a lead account copied to several follower accounts, each with its own size, lock and limits (group and account names blurred)")}
     </div>
 
     <div class="row flip">
