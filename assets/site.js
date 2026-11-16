@@ -2,8 +2,6 @@
 (function () {
   'use strict';
 
-  /* Live Stripe payment links. The ONLY place they're set on the site.
-     Changing these changes where customers are charged — get approval first. */
   /* Live Stripe payment links (launch 2026 prices: $49 / $500 / $1,999). The ONLY place they're set on the site.
      Changing these changes where customers are charged — get approval first. */
   var BUY = {
