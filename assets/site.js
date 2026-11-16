@@ -7,7 +7,8 @@
   var BUY = {
     monthly:  'https://buy.stripe.com/6oU4gydih0RP6fo1B4gnK03',
     annual:   'https://buy.stripe.com/3cI3cucedasp9rAgvYgnK04',
-    lifetime: 'https://buy.stripe.com/4gM7sKdihbwt33ca7AgnK05'
+    lifetime: 'https://buy.stripe.com/4gM7sKdihbwt33ca7AgnK05',
+    nyopen:   'https://buy.stripe.com/fZuaEW4LL8kh33c1B4gnK06'      /* NYOpen $39.99 / month → /automation/thanks/ */
   };
 
   /* Old in-page anchors from the previous site → their new homes. */

@@ -344,3 +344,4 @@ p a,li a,.faq a,.notice a{text-decoration:underline;text-underline-offset:3px;te
 .bt-notes li{margin-bottom:6px;}
 @media (max-width:860px){.auto-head{grid-template-columns:1fr;gap:32px;}}
 .checkout-note{text-align:center;margin:20px 0 0;}
+.steps code{overflow-wrap:anywhere;word-break:break-word;font-family:var(--mono);font-size:.92em;}

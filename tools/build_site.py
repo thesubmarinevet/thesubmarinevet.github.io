@@ -683,11 +683,12 @@ automation = f"""<section class="page-hero">
         </ul>
       </div>
       <div class="plan featured auto-price">
-        <span class="plan-flag badge badge-planned">Coming soon</span>
+        <span class="plan-flag badge badge-available">Available now</span>
         <h3>NYOpen</h3>
         <p class="price">$39.99<small>/ month</small></p>
-        <p class="price-note">Add-on for an active SST subscription. Included with Lifetime.</p>
-        <a class="btn btn-primary btn-block" href="mailto:{EMAIL}?subject=NYOpen%20-%20let%20me%20know">Let me know when it's ready</a>
+        <p class="price-note">Monthly subscription, cancel anytime. Included with SST Lifetime.</p>
+        <a class="btn btn-primary btn-block" data-plan="nyopen" href="mailto:{EMAIL}?subject=NYOpen%20-%20subscribe">Get NYOpen</a>
+        <p class="muted small" style="margin-top:12px">Checkout opens in a new tab, by Stripe. <a href="/support/#nyopen">How setup works</a></p>
       </div>
     </div>
   </div>
@@ -732,6 +733,39 @@ page("/automation/", "Automation — NYOpen strategy for NinjaTrader 8 | Silent 
      "SilentService NYOpen: an automated New York open breakout strategy for ES and NQ on NinjaTrader 8, with 2026 backtests. $39.99 a month, included with Lifetime.",
      "/automation/", automation)
 
+
+
+# ------------------------------------------------------------------ NYOPEN THANKS (Stripe redirect for the NYOpen link)
+nyopen_steps = f"""    <ol class="steps">
+      <li><strong>Watch your inbox</strong>Your NYOpen license key and the strategy file arrive by email at the address you used at checkout. Check spam too.</li>
+      <li><strong>Install</strong>Close NinjaTrader&nbsp;8. Copy the NYOpen file into <code>Documents\\NinjaTrader&nbsp;8\\bin\\Custom\\Strategies</code>, start NinjaTrader, open the NinjaScript Editor (New → NinjaScript Editor) and press F5 to compile. If you received a .zip instead, use Tools → Import → NinjaScript Add-On.</li>
+      <li><strong>Enter your key</strong>Add <em>SilentService - NYOpen</em> to a chart or the Strategies tab. Paste your key into <em>License Key</em>, the first setting. SST Lifetime owners can leave it empty — the SST key on that PC is used.</li>
+      <li><strong>Start on Sim</strong>Pick a simulation account and ES or NQ (or MES / MNQ), keep 1 contract, and enable it. The bottom-left of the chart shows your license status. Go live when you trust it.</li>
+    </ol>"""
+
+nyopen_thanks = f"""<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Payment received</p>
+    <h1>NYOpen is on its way.</h1>
+    <p class="lead">Thanks for subscribing. Your receipt from Stripe is on its way to the email you used at checkout.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">What happens next</p><h2>Four steps to your first NYOpen session.</h2></div>
+{nyopen_steps}
+    <div class="notice" role="note" style="margin-top:36px">
+      {ICONS['info']}
+      <div>
+        <p><strong>Without a valid license, NYOpen turns itself off when you enable it</strong> and the Log tab says why. If a license lapses while it runs, it takes no new trades — stops, targets and the 3:55&nbsp;PM flatten keep working.</p>
+        <p class="muted">Check your prop firm's rules on automated trading before running it on a funded account.</p>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:28px">Questions? Email <a href="mailto:{EMAIL}">{EMAIL}</a> with your order email, or visit <a href="/support/#nyopen">Support</a>.</p>
+  </div>
+</section>"""
+page("/automation/thanks/", "Welcome aboard — NYOpen | Silent Service Trading",
+     "Thanks for subscribing to NYOpen. Here's how to install it and enter your license key.", "", nyopen_thanks, noindex=True)
 
 # ------------------------------------------------------------------ ABOUT
 socials = [("X", "https://x.com/thesubmarinevet"), ("YouTube", "https://youtube.com/@thesubmarinevet"),
@@ -845,6 +879,13 @@ support = f"""<section class="page-hero">
   </div>
 </section>
 
+<section class="section section-alt" id="nyopen" style="scroll-margin-top:72px">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">NYOpen</p><h2>Setting up the NYOpen strategy.</h2></div>
+{nyopen_steps}
+  </div>
+</section>
+
 <section class="section" id="faq" style="scroll-margin-top:72px">
   <div class="wrap">
     <div class="section-head"><p class="eyebrow">FAQ</p><h2>Straight answers.</h2></div>
@@ -857,6 +898,9 @@ support = f"""<section class="page-hero">
       <details><summary>Do you see my account data?</summary><div><p>No. Your accounts, balances and positions stay inside NinjaTrader on your machine. The license check sends only your license key and a machine ID.</p></div></details>
       <details><summary>How do I move my license to a new computer?</summary><div><p>Each license runs on up to 2 machines. <a href="mailto:{EMAIL}">Email us</a> and we'll free up a seat.</p></div></details>
       <details><summary>How do I cancel or change my plan?</summary><div><p><a href="mailto:{EMAIL}">Email us</a> from the address you used at checkout. Monthly and annual plans run to the end of the period you've paid for.</p></div></details>
+      <details><summary>Does NYOpen need SST?</summary><div><p>No. NYOpen is a NinjaTrader&nbsp;8 strategy and runs on its own with its own license key. It's included with an SST Lifetime license — leave its License Key empty and it uses the SST key on that PC.</p></div></details>
+      <details><summary>Does NYOpen trade micros?</summary><div><p>Yes — run it on MES or MNQ as well as ES or NQ. The stop and target are set in dollars per contract and converted to ticks, so the distance stays the same at any size.</p></div></details>
+      <details><summary>What happens if my NYOpen license runs out?</summary><div><p>If it lapses while running, NYOpen takes no new trades; any open trade keeps its stop, target and 3:55&nbsp;PM flatten. The next time you enable it without a valid license, it turns itself off and the Log tab says why.</p></div></details>
       <details><summary>What's the difference between "Available", "In testing" and "Planned"?</summary><div><p>Available features are in the current release. In-testing features are built and finishing testing before release. Planned features are on the roadmap and not yet in the product — buy for what's available today.</p></div></details>
     </div>
   </div>
