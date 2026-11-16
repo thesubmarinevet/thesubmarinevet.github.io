@@ -711,7 +711,6 @@ automation = f"""<section class="page-hero">
         <ul>
           <li>Profits are before commissions, exchange fees and slippage. At a few dollars per round trip, about 200 trades cost several hundred dollars more than shown, and real fills — especially fast breakout fills — can be worse than the backtest's.</li>
           <li>The strategy's settings were chosen with this same 2026 data in view. Results on data the settings never saw would likely be weaker.</li>
-          <li>The strategy is still being adjusted before release. These results will be replaced when the release version is tested.</li>
         </ul>
         <p class="muted small">Hypothetical performance results have many inherent limitations. No representation is made that any account will or is likely to achieve profits or losses similar to those shown. Hypothetical results are prepared with the benefit of hindsight, do not involve financial risk, and cannot account for factors such as the ability to keep trading through losses, liquidity, or execution. Actual results will differ, and can include losses greater than any shown here.</p>
       </div>
