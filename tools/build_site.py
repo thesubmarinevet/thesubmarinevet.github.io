@@ -528,6 +528,8 @@ pricing = f"""<section class="page-hero">
       </div>
     </div>
 
+    <p class="muted small checkout-note">Checkout opens in a new tab, handled securely by Stripe. Changed your mind? Just close that tab — nothing is charged until you press Subscribe or Pay.</p>
+
     <div class="reqs">
       <span><strong>Platform</strong> NinjaTrader&nbsp;8</span>
       <span><strong>Computer</strong> Windows PC or VPS</span>

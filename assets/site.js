@@ -34,7 +34,13 @@
     var links = document.querySelectorAll('[data-plan]');
     for (var i = 0; i < links.length; i++) {
       var url = BUY[links[i].getAttribute('data-plan')];
-      if (url) links[i].setAttribute('href', url);
+      if (url) {
+        links[i].setAttribute('href', url);
+        /* Checkout opens in a new tab so the pricing page stays open behind it:
+           closing the checkout tab is the "cancel". Payment links have no cancel URL. */
+        links[i].setAttribute('target', '_blank');
+        links[i].setAttribute('rel', 'noopener');
+      }
     }
 
     /* footer year */
