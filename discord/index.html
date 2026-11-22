@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Link your license to Discord | Silent Service Trading</title>
+<meta name="description" content="SST and NYOpen customers: link your license key to Discord to get the customer channels.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://silentservicetrading.com/discord/">
+<meta name="theme-color" content="#0B1220">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Silent Service Trading">
+<meta property="og:title" content="Link your license to Discord | Silent Service Trading">
+<meta property="og:description" content="SST and NYOpen customers: link your license key to Discord to get the customer channels.">
+<meta property="og:url" content="https://silentservicetrading.com/discord/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;650;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=ae870fbe">
+<script src="/assets/site.js?v=ae870fbe" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Silent Service Trading — home">
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+  <path d="M14 2 H50 L62 14 V50 L50 62 H14 L2 50 V14 Z" fill="#0E0F0C" stroke="#5C6352" stroke-width="2"/>
+  <circle cx="32" cy="32" r="21" fill="#17140A" stroke="#F2A900" stroke-opacity="0.45" stroke-width="2.5"/>
+  <circle cx="32" cy="32" r="12" fill="none" stroke="#F2A900" stroke-opacity="0.45" stroke-width="2.5"/>
+  <path d="M32 11 V53 M11 32 H53" stroke="#F2A900" stroke-opacity="0.25" stroke-width="1.5"/>
+  <path d="M32 32 L32 11 A21 21 0 0 1 50.2 21.5 Z" fill="#F2A900" fill-opacity="0.28"/>
+  <path d="M32 32 L50.2 21.5" stroke="#F2A900" stroke-width="3.5" stroke-linecap="square"/>
+  <rect x="38" y="16" width="5" height="5" fill="#F2A900"/>
+</svg>
+      <span class="logo-text"><strong>Silent Service Trading</strong><span>by The Submarine Vet</span></span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/command-center/">Features</a>
+      <a href="/automation/">Automation</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/about/">About</a>
+      <a href="/support/">Support</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Customers</p>
+    <h1>Link your license to Discord.</h1>
+    <p class="lead">Enter your SST or NYOpen license key, then sign in with Discord. You'll join the server with the channels your license includes.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap" style="max-width:640px">
+    <form id="dl" class="card" novalidate>
+      <label for="dl-key" style="display:block;font-weight:600;margin-bottom:8px">License key</label>
+      <input id="dl-key" name="key" autocomplete="off" spellcheck="false" placeholder="SST-XXXX-XXXX-XXXX-XXXX"
+             style="width:100%;box-sizing:border-box;padding:12px 14px;border-radius:8px;border:1px solid #5C6352;background:#0E0F0C;color:#E8E6DF;font:16px 'IBM Plex Mono',monospace;text-transform:uppercase">
+      <p id="dl-err" role="alert" style="color:#F2A900;min-height:1.4em;margin:10px 0 0"></p>
+      <button class="btn btn-primary" type="submit" style="margin-top:12px">Continue with Discord</button>
+      <p class="muted" style="margin-top:18px">Discord asks to see your username and to add you to the Silent Service Trading server. Nothing else. Your roles follow your license: if it lapses they come off, and they come back when it's renewed.</p>
+    </form>
+    <p class="muted" style="margin-top:24px">Not a customer yet? The community channels are open to everyone: <a href="https://discord.gg/Vx8zWWyaSt" rel="noopener">join the server</a>. Trouble linking? Email <a href="mailto:thesubmarineveteran@gmail.com">thesubmarineveteran@gmail.com</a> with your key.</p>
+  </div>
+</section>
+<script>
+document.getElementById('dl').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var k = document.getElementById('dl-key').value.trim().toUpperCase().replace(/\s+/g, '');
+  if (!/^[A-Z]{3}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(k)) {
+    document.getElementById('dl-err').textContent = 'That doesn\u2019t look like a license key. It looks like SST-XXXX-XXXX-XXXX-XXXX.';
+    return;
+  }
+  location.href = 'https://discord.com/oauth2/authorize?client_id=__CLIENT_ID__&response_type=code' +
+    '&redirect_uri=' + encodeURIComponent('https://script.google.com/macros/s/AKfycbyB-xatkIN-GCc3uUEgaa0H1QC5Yi1rD7DsWEI442XxuRJj9Jlsqq6p9635eTSCdNI_yA/exec') + '&scope=identify%20guilds.join&prompt=consent&state=' + encodeURIComponent(k);
+});
+</script>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="/" aria-label="Silent Service Trading — home"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+  <path d="M14 2 H50 L62 14 V50 L50 62 H14 L2 50 V14 Z" fill="#0E0F0C" stroke="#5C6352" stroke-width="2"/>
+  <circle cx="32" cy="32" r="21" fill="#17140A" stroke="#F2A900" stroke-opacity="0.45" stroke-width="2.5"/>
+  <circle cx="32" cy="32" r="12" fill="none" stroke="#F2A900" stroke-opacity="0.45" stroke-width="2.5"/>
+  <path d="M32 11 V53 M11 32 H53" stroke="#F2A900" stroke-opacity="0.25" stroke-width="1.5"/>
+  <path d="M32 32 L32 11 A21 21 0 0 1 50.2 21.5 Z" fill="#F2A900" fill-opacity="0.28"/>
+  <path d="M32 32 L50.2 21.5" stroke="#F2A900" stroke-width="3.5" stroke-linecap="square"/>
+  <rect x="38" y="16" width="5" height="5" fill="#F2A900"/>
+</svg><span class="logo-text"><strong>Silent Service Trading</strong><span>by The Submarine Vet</span></span></a>
+        <p>SST: the risk, copier and journal workspace for NinjaTrader&nbsp;8. Trade, monitor and review every account you run.</p>
+      </div>
+      <div class="foot-col">
+        <h2>Product</h2>
+        <ul>
+          <li><a href="/command-center/">Features</a></li>
+          <li><a href="/automation/">Automation</a></li>
+          <li><a href="/command-center/#requirements">Requirements</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/about/#follow">Follow</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h2>Support</h2>
+        <ul>
+          <li><a href="/support/#getting-started">Getting started</a></li>
+          <li><a href="/support/#faq">FAQ</a></li>
+          <li><a href="mailto:thesubmarineveteran@gmail.com">Email support</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="disclaimer">Silent Service Trading is a software tool, not financial advice. Futures trading involves substantial risk of loss and is not suitable for every investor. You are responsible for every order placed on your accounts and for following your broker's and prop firm's rules, including rules on trade copiers and automated trading. Past or hypothetical performance does not guarantee future results. Test on simulation accounts first.</p>
+    <p class="disclaimer">NinjaTrader is a registered trademark of NinjaTrader Group, LLC. Silent Service Trading is not affiliated with or endorsed by NinjaTrader or any prop firm.</p>
+    <div class="foot-bottom">
+      <span>&copy; <span data-year>2026</span> The Submarine Vet · Silent Service Trading</span>
+      <a href="mailto:thesubmarineveteran@gmail.com">thesubmarineveteran@gmail.com</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

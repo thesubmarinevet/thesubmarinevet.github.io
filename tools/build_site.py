@@ -804,6 +804,7 @@ nyopen_thanks = f"""<section class="page-hero">
   <div class="wrap">
     <div class="section-head"><p class="eyebrow">What happens next</p><h2>Four steps to your first NYOpen session.</h2></div>
 {nyopen_steps}
+    <p style="margin-top:28px"><strong>Join the Discord:</strong> <a href="/discord/">link your license key</a> to get the customer channels.</p>
     <div class="notice" role="note" style="margin-top:36px">
       {ICONS['info']}
       <div>
@@ -977,11 +978,50 @@ thanks = f"""<section class="page-hero">
       <li><strong>Enter your key</strong>Open Silent Service Trading from NinjaTrader's New menu and paste your license key.</li>
       <li><strong>Start on Sim</strong>Set your prop rules and copier group on simulation accounts first. Go live when you trust it.</li>
     </ol>
-    <p class="muted" style="margin-top:36px">Questions? Email <a href="mailto:{EMAIL}">{EMAIL}</a> with your order email, or visit <a href="/support/">Support</a>.</p>
+    <p style="margin-top:28px"><strong>Join the Discord:</strong> <a href="/discord/">link your license key</a> to get the customer channels.</p>
+    <p class="muted" style="margin-top:20px">Questions? Email <a href="mailto:{EMAIL}">{EMAIL}</a> with your order email, or visit <a href="/support/">Support</a>.</p>
   </div>
 </section>"""
 page("/command-center/thanks/", "Welcome aboard — SST | Silent Service Trading",
      "Thanks for your purchase. Here's how to install SST and get started.", "", thanks, noindex=True)
+
+# ------------------------------------------------------------------ DISCORD LINK (license key → Discord roles)
+DISCORD_CLIENT_ID = "__CLIENT_ID__"
+LICENSE_URL = "https://script.google.com/macros/s/AKfycbyB-xatkIN-GCc3uUEgaa0H1QC5Yi1rD7DsWEI442XxuRJj9Jlsqq6p9635eTSCdNI_yA/exec"
+discord_link = f"""<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Customers</p>
+    <h1>Link your license to Discord.</h1>
+    <p class="lead">Enter your SST or NYOpen license key, then sign in with Discord. You'll join the server with the channels your license includes.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap" style="max-width:640px">
+    <form id="dl" class="card" novalidate>
+      <label for="dl-key" style="display:block;font-weight:600;margin-bottom:8px">License key</label>
+      <input id="dl-key" name="key" autocomplete="off" spellcheck="false" placeholder="SST-XXXX-XXXX-XXXX-XXXX"
+             style="width:100%;box-sizing:border-box;padding:12px 14px;border-radius:8px;border:1px solid #5C6352;background:#0E0F0C;color:#E8E6DF;font:16px 'IBM Plex Mono',monospace;text-transform:uppercase">
+      <p id="dl-err" role="alert" style="color:#F2A900;min-height:1.4em;margin:10px 0 0"></p>
+      <button class="btn btn-primary" type="submit" style="margin-top:12px">Continue with Discord</button>
+      <p class="muted" style="margin-top:18px">Discord asks to see your username and to add you to the Silent Service Trading server. Nothing else. Your roles follow your license: if it lapses they come off, and they come back when it's renewed.</p>
+    </form>
+    <p class="muted" style="margin-top:24px">Not a customer yet? The community channels are open to everyone: <a href="https://discord.gg/Vx8zWWyaSt" rel="noopener">join the server</a>. Trouble linking? Email <a href="mailto:{EMAIL}">{EMAIL}</a> with your key.</p>
+  </div>
+</section>
+<script>
+document.getElementById('dl').addEventListener('submit', function (e) {{
+  e.preventDefault();
+  var k = document.getElementById('dl-key').value.trim().toUpperCase().replace(/\\s+/g, '');
+  if (!/^[A-Z]{{3}}-[A-Z0-9]{{4}}-[A-Z0-9]{{4}}-[A-Z0-9]{{4}}-[A-Z0-9]{{4}}$/.test(k)) {{
+    document.getElementById('dl-err').textContent = 'That doesn\\u2019t look like a license key. It looks like SST-XXXX-XXXX-XXXX-XXXX.';
+    return;
+  }}
+  location.href = 'https://discord.com/oauth2/authorize?client_id={DISCORD_CLIENT_ID}&response_type=code' +
+    '&redirect_uri=' + encodeURIComponent('{LICENSE_URL}') + '&scope=identify%20guilds.join&prompt=consent&state=' + encodeURIComponent(k);
+}});
+</script>"""
+page("/discord/", "Link your license to Discord | Silent Service Trading",
+     "SST and NYOpen customers: link your license key to Discord to get the customer channels.", "", discord_link, noindex=True)
 
 # ------------------------------------------------------------------ 404
 nf = """<section class="page-hero" style="border-bottom:none;min-height:56vh">
