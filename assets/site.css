@@ -345,3 +345,9 @@ p a,li a,.faq a,.notice a{text-decoration:underline;text-underline-offset:3px;te
 @media (max-width:860px){.auto-head{grid-template-columns:1fr;gap:32px;}}
 .checkout-note{text-align:center;margin:20px 0 0;}
 .steps code{overflow-wrap:anywhere;word-break:break-word;font-family:var(--mono);font-size:.92em;}
+.price-group-head{margin:56px 0 24px;max-width:720px;}
+.price-group-head h2{margin:6px 0 8px;}
+.plans-solo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px;align-items:center;}
+.plan-aside h3{font-size:18px;margin:0 0 6px;}
+.plan-aside p{margin:0 0 22px;}
+@media (max-width:860px){.plans-solo{grid-template-columns:1fr;}}
