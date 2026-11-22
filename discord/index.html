@@ -55,34 +55,46 @@
 <section class="page-hero">
   <div class="wrap">
     <p class="eyebrow">Customers</p>
-    <h1>Link your license to Discord.</h1>
-    <p class="lead">Enter your SST or NYOpen license key, then sign in with Discord. You'll join the server with the channels your license includes.</p>
+    <h1>Get your customer channels on Discord.</h1>
+    <p class="lead">Sign in with Discord. If your Discord email matches the email you bought with, you'll join the server with the channels your license includes.</p>
   </div>
 </section>
 <section class="section">
   <div class="wrap" style="max-width:640px">
-    <form id="dl" class="card" novalidate>
-      <label for="dl-key" style="display:block;font-weight:600;margin-bottom:8px">License key</label>
-      <input id="dl-key" name="key" autocomplete="off" spellcheck="false" placeholder="SST-XXXX-XXXX-XXXX-XXXX"
-             style="width:100%;box-sizing:border-box;padding:12px 14px;border-radius:8px;border:1px solid #5C6352;background:#0E0F0C;color:#E8E6DF;font:16px 'IBM Plex Mono',monospace;text-transform:uppercase">
-      <p id="dl-err" role="alert" style="color:#F2A900;min-height:1.4em;margin:10px 0 0"></p>
-      <button class="btn btn-primary" type="submit" style="margin-top:12px">Continue with Discord</button>
-      <p class="muted" style="margin-top:18px">Discord asks to see your username and to add you to the Silent Service Trading server. Nothing else. Your roles follow your license: if it lapses they come off, and they come back when it's renewed.</p>
-    </form>
-    <p class="muted" style="margin-top:24px">Not a customer yet? The community channels are open to everyone: <a href="https://discord.gg/Vx8zWWyaSt" rel="noopener">join the server</a>. Trouble linking? Email <a href="mailto:thesubmarineveteran@gmail.com">thesubmarineveteran@gmail.com</a> with your key.</p>
+    <div class="card">
+      <a class="btn btn-primary" id="dl-go" href="#">Continue with Discord</a>
+      <p class="muted" style="margin-top:18px">Discord asks to see your username and email and to add you to the Silent Service Trading server. Nothing else. Your roles follow your license: if it lapses they come off, and they come back when it's renewed.</p>
+      <details style="margin-top:18px">
+        <summary style="cursor:pointer">Bought with a different email? Use your license key</summary>
+        <form id="dl" novalidate style="margin-top:14px">
+          <label for="dl-key" style="display:block;font-weight:600;margin-bottom:8px">License key</label>
+          <input id="dl-key" name="key" autocomplete="off" spellcheck="false" placeholder="SST-XXXX-XXXX-XXXX-XXXX"
+                 style="width:100%;box-sizing:border-box;padding:12px 14px;border-radius:8px;border:1px solid #5C6352;background:#0E0F0C;color:#E8E6DF;font:16px 'IBM Plex Mono',monospace;text-transform:uppercase">
+          <p id="dl-err" role="alert" style="color:#F2A900;min-height:1.4em;margin:10px 0 0"></p>
+          <button class="btn btn-secondary" type="submit" style="margin-top:8px">Continue with Discord</button>
+        </form>
+      </details>
+    </div>
+    <p class="muted" style="margin-top:24px">Not a customer yet? The community channels are open to everyone: <a href="https://discord.gg/Vx8zWWyaSt" rel="noopener">join the server</a>. Trouble? Email <a href="mailto:thesubmarineveteran@gmail.com">thesubmarineveteran@gmail.com</a>.</p>
   </div>
 </section>
 <script>
-document.getElementById('dl').addEventListener('submit', function (e) {
-  e.preventDefault();
-  var k = document.getElementById('dl-key').value.trim().toUpperCase().replace(/\s+/g, '');
-  if (!/^[A-Z]{3}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(k)) {
-    document.getElementById('dl-err').textContent = 'That doesn\u2019t look like a license key. It looks like SST-XXXX-XXXX-XXXX-XXXX.';
-    return;
-  }
-  location.href = 'https://discord.com/oauth2/authorize?client_id=__CLIENT_ID__&response_type=code' +
-    '&redirect_uri=' + encodeURIComponent('https://script.google.com/macros/s/AKfycbyB-xatkIN-GCc3uUEgaa0H1QC5Yi1rD7DsWEI442XxuRJj9Jlsqq6p9635eTSCdNI_yA/exec') + '&scope=identify%20guilds.join&prompt=consent&state=' + encodeURIComponent(k);
-});
+(function () {
+  var base = 'https://discord.com/oauth2/authorize?client_id=__CLIENT_ID__&response_type=code' +
+    '&redirect_uri=' + encodeURIComponent('https://script.google.com/macros/s/AKfycbyB-xatkIN-GCc3uUEgaa0H1QC5Yi1rD7DsWEI442XxuRJj9Jlsqq6p9635eTSCdNI_yA/exec') + '&scope=identify%20email%20guilds.join&state=';
+  document.getElementById('dl-go').href = base + 'e';
+  var pre = new URLSearchParams(location.search).get('key');
+  if (pre) { document.getElementById('dl-key').value = pre; document.querySelector('#dl').closest('details').open = true; }
+  document.getElementById('dl').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var k = document.getElementById('dl-key').value.trim().toUpperCase().replace(/\s+/g, '');
+    if (!/^[A-Z]{3}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(k)) {
+      document.getElementById('dl-err').textContent = 'That doesn\u2019t look like a license key. It looks like SST-XXXX-XXXX-XXXX-XXXX.';
+      return;
+    }
+    location.href = base + encodeURIComponent(k);
+  });
+})();
 </script>
 </main>
 <footer class="site-footer">

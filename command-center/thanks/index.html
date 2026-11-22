@@ -61,6 +61,32 @@
 </section>
 <section class="section">
   <div class="wrap">
+    <div id="keybox" class="card" style="display:none;margin-bottom:36px">
+      <p class="eyebrow" style="margin:0 0 6px">Your license key</p>
+      <p id="kb-msg" class="muted" style="margin:0">Getting your key…</p>
+      <div id="kb-keyrow" style="display:none;align-items:center;gap:12px;flex-wrap:wrap;margin-top:6px">
+        <code id="kb-key" style="font:700 22px 'IBM Plex Mono',monospace;letter-spacing:.04em;color:#F2A900"></code>
+        <button class="btn btn-secondary" type="button" id="kb-copy">Copy</button>
+      </div>
+      <p id="kb-note" class="muted" style="display:none;margin:10px 0 0"></p>
+    </div>
+<script>
+(function () {
+  var sid = new URLSearchParams(location.search).get('session_id');
+  if (!sid) return;
+  var box = document.getElementById('keybox'); box.style.display = '';
+  fetch('https://script.google.com/macros/s/AKfycbyB-xatkIN-GCc3uUEgaa0H1QC5Yi1rD7DsWEI442XxuRJj9Jlsqq6p9635eTSCdNI_yA/exec?a=claim&session=' + encodeURIComponent(sid)).then(function (r) { return r.json(); }).then(function (d) {
+    if (!d.ok) { document.getElementById('kb-msg').textContent = d.error || 'Your key will arrive by email in a few minutes.'; return; }
+    document.getElementById('kb-msg').textContent = d.product + ':';
+    document.getElementById('kb-key').textContent = d.key;
+    document.getElementById('kb-keyrow').style.display = 'flex';
+    var n = document.getElementById('kb-note'); n.style.display = '';
+    n.innerHTML = 'We also emailed it to <strong></strong>. <a href="/discord/">Get your customer channels on Discord</a>.';
+    n.querySelector('strong').textContent = d.email || 'you';
+    document.getElementById('kb-copy').onclick = function () { navigator.clipboard.writeText(d.key); this.textContent = 'Copied'; };
+  }).catch(function () { document.getElementById('kb-msg').textContent = 'Your key will arrive by email in a few minutes.'; });
+})();
+</script>
     <div class="section-head"><p class="eyebrow">What happens next</p><h2>Four steps to your first copied trade.</h2></div>
     <ol class="steps">
       <li><strong>Watch your inbox</strong>Your license key and download link arrive by email. Check spam too.</li>
@@ -68,7 +94,7 @@
       <li><strong>Enter your key</strong>Open Silent Service Trading from NinjaTrader's New menu and paste your license key.</li>
       <li><strong>Start on Sim</strong>Set your prop rules and copier group on simulation accounts first. Go live when you trust it.</li>
     </ol>
-    <p style="margin-top:28px"><strong>Join the Discord:</strong> <a href="/discord/">link your license key</a> to get the customer channels.</p>
+    <p style="margin-top:28px"><strong>Join the Discord:</strong> <a href="/discord/">get your customer channels</a> by signing in with Discord.</p>
     <p class="muted" style="margin-top:20px">Questions? Email <a href="mailto:thesubmarineveteran@gmail.com">thesubmarineveteran@gmail.com</a> with your order email, or visit <a href="/support/">Support</a>.</p>
   </div>
 </section>

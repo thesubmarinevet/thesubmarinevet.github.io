@@ -6,6 +6,36 @@ import json, sys, os
 ROOT = sys.argv[1]
 SITE = "https://silentservicetrading.com"
 EMAIL = "thesubmarineveteran@gmail.com"
+LICENSE_URL = "https://script.google.com/macros/s/AKfycbyB-xatkIN-GCc3uUEgaa0H1QC5Yi1rD7DsWEI442XxuRJj9Jlsqq6p9635eTSCdNI_yA/exec"
+
+# key shown on the thank-you pages: Stripe redirects with ?session_id={CHECKOUT_SESSION_ID}; the license server returns the key
+KEYBOX = """    <div id="keybox" class="card" style="display:none;margin-bottom:36px">
+      <p class="eyebrow" style="margin:0 0 6px">Your license key</p>
+      <p id="kb-msg" class="muted" style="margin:0">Getting your key…</p>
+      <div id="kb-keyrow" style="display:none;align-items:center;gap:12px;flex-wrap:wrap;margin-top:6px">
+        <code id="kb-key" style="font:700 22px 'IBM Plex Mono',monospace;letter-spacing:.04em;color:#F2A900"></code>
+        <button class="btn btn-secondary" type="button" id="kb-copy">Copy</button>
+      </div>
+      <p id="kb-note" class="muted" style="display:none;margin:10px 0 0"></p>
+    </div>
+<script>
+(function () {
+  var sid = new URLSearchParams(location.search).get('session_id');
+  if (!sid) return;
+  var box = document.getElementById('keybox'); box.style.display = '';
+  fetch('LICENSE_URL_HERE?a=claim&session=' + encodeURIComponent(sid)).then(function (r) { return r.json(); }).then(function (d) {
+    if (!d.ok) { document.getElementById('kb-msg').textContent = d.error || 'Your key will arrive by email in a few minutes.'; return; }
+    document.getElementById('kb-msg').textContent = d.product + ':';
+    document.getElementById('kb-key').textContent = d.key;
+    document.getElementById('kb-keyrow').style.display = 'flex';
+    var n = document.getElementById('kb-note'); n.style.display = '';
+    n.innerHTML = 'We also emailed it to <strong></strong>. <a href="/discord/">Get your customer channels on Discord</a>.';
+    n.querySelector('strong').textContent = d.email || 'you';
+    document.getElementById('kb-copy').onclick = function () { navigator.clipboard.writeText(d.key); this.textContent = 'Copied'; };
+  }).catch(function () { document.getElementById('kb-msg').textContent = 'Your key will arrive by email in a few minutes.'; });
+})();
+</script>
+""".replace("LICENSE_URL_HERE", LICENSE_URL)
 
 import hashlib as _hl, os as _os
 def _asset_v():
@@ -802,9 +832,9 @@ nyopen_thanks = f"""<section class="page-hero">
 </section>
 <section class="section">
   <div class="wrap">
-    <div class="section-head"><p class="eyebrow">What happens next</p><h2>Four steps to your first NYOpen session.</h2></div>
+{KEYBOX}    <div class="section-head"><p class="eyebrow">What happens next</p><h2>Four steps to your first NYOpen session.</h2></div>
 {nyopen_steps}
-    <p style="margin-top:28px"><strong>Join the Discord:</strong> <a href="/discord/">link your license key</a> to get the customer channels.</p>
+    <p style="margin-top:28px"><strong>Join the Discord:</strong> <a href="/discord/">get your customer channels</a> by signing in with Discord.</p>
     <div class="notice" role="note" style="margin-top:36px">
       {ICONS['info']}
       <div>
@@ -971,14 +1001,14 @@ thanks = f"""<section class="page-hero">
 </section>
 <section class="section">
   <div class="wrap">
-    <div class="section-head"><p class="eyebrow">What happens next</p><h2>Four steps to your first copied trade.</h2></div>
+{KEYBOX}    <div class="section-head"><p class="eyebrow">What happens next</p><h2>Four steps to your first copied trade.</h2></div>
     <ol class="steps">
       <li><strong>Watch your inbox</strong>Your license key and download link arrive by email. Check spam too.</li>
       <li><strong>Install</strong>In NinjaTrader&nbsp;8: Tools → Import → NinjaScript Add-On, choose the file, then restart NinjaTrader.</li>
       <li><strong>Enter your key</strong>Open Silent Service Trading from NinjaTrader's New menu and paste your license key.</li>
       <li><strong>Start on Sim</strong>Set your prop rules and copier group on simulation accounts first. Go live when you trust it.</li>
     </ol>
-    <p style="margin-top:28px"><strong>Join the Discord:</strong> <a href="/discord/">link your license key</a> to get the customer channels.</p>
+    <p style="margin-top:28px"><strong>Join the Discord:</strong> <a href="/discord/">get your customer channels</a> by signing in with Discord.</p>
     <p class="muted" style="margin-top:20px">Questions? Email <a href="mailto:{EMAIL}">{EMAIL}</a> with your order email, or visit <a href="/support/">Support</a>.</p>
   </div>
 </section>"""
@@ -987,38 +1017,49 @@ page("/command-center/thanks/", "Welcome aboard — SST | Silent Service Trading
 
 # ------------------------------------------------------------------ DISCORD LINK (license key → Discord roles)
 DISCORD_CLIENT_ID = "__CLIENT_ID__"
-LICENSE_URL = "https://script.google.com/macros/s/AKfycbyB-xatkIN-GCc3uUEgaa0H1QC5Yi1rD7DsWEI442XxuRJj9Jlsqq6p9635eTSCdNI_yA/exec"
 discord_link = f"""<section class="page-hero">
   <div class="wrap">
     <p class="eyebrow">Customers</p>
-    <h1>Link your license to Discord.</h1>
-    <p class="lead">Enter your SST or NYOpen license key, then sign in with Discord. You'll join the server with the channels your license includes.</p>
+    <h1>Get your customer channels on Discord.</h1>
+    <p class="lead">Sign in with Discord. If your Discord email matches the email you bought with, you'll join the server with the channels your license includes.</p>
   </div>
 </section>
 <section class="section">
   <div class="wrap" style="max-width:640px">
-    <form id="dl" class="card" novalidate>
-      <label for="dl-key" style="display:block;font-weight:600;margin-bottom:8px">License key</label>
-      <input id="dl-key" name="key" autocomplete="off" spellcheck="false" placeholder="SST-XXXX-XXXX-XXXX-XXXX"
-             style="width:100%;box-sizing:border-box;padding:12px 14px;border-radius:8px;border:1px solid #5C6352;background:#0E0F0C;color:#E8E6DF;font:16px 'IBM Plex Mono',monospace;text-transform:uppercase">
-      <p id="dl-err" role="alert" style="color:#F2A900;min-height:1.4em;margin:10px 0 0"></p>
-      <button class="btn btn-primary" type="submit" style="margin-top:12px">Continue with Discord</button>
-      <p class="muted" style="margin-top:18px">Discord asks to see your username and to add you to the Silent Service Trading server. Nothing else. Your roles follow your license: if it lapses they come off, and they come back when it's renewed.</p>
-    </form>
-    <p class="muted" style="margin-top:24px">Not a customer yet? The community channels are open to everyone: <a href="https://discord.gg/Vx8zWWyaSt" rel="noopener">join the server</a>. Trouble linking? Email <a href="mailto:{EMAIL}">{EMAIL}</a> with your key.</p>
+    <div class="card">
+      <a class="btn btn-primary" id="dl-go" href="#">Continue with Discord</a>
+      <p class="muted" style="margin-top:18px">Discord asks to see your username and email and to add you to the Silent Service Trading server. Nothing else. Your roles follow your license: if it lapses they come off, and they come back when it's renewed.</p>
+      <details style="margin-top:18px">
+        <summary style="cursor:pointer">Bought with a different email? Use your license key</summary>
+        <form id="dl" novalidate style="margin-top:14px">
+          <label for="dl-key" style="display:block;font-weight:600;margin-bottom:8px">License key</label>
+          <input id="dl-key" name="key" autocomplete="off" spellcheck="false" placeholder="SST-XXXX-XXXX-XXXX-XXXX"
+                 style="width:100%;box-sizing:border-box;padding:12px 14px;border-radius:8px;border:1px solid #5C6352;background:#0E0F0C;color:#E8E6DF;font:16px 'IBM Plex Mono',monospace;text-transform:uppercase">
+          <p id="dl-err" role="alert" style="color:#F2A900;min-height:1.4em;margin:10px 0 0"></p>
+          <button class="btn btn-secondary" type="submit" style="margin-top:8px">Continue with Discord</button>
+        </form>
+      </details>
+    </div>
+    <p class="muted" style="margin-top:24px">Not a customer yet? The community channels are open to everyone: <a href="https://discord.gg/Vx8zWWyaSt" rel="noopener">join the server</a>. Trouble? Email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
   </div>
 </section>
 <script>
-document.getElementById('dl').addEventListener('submit', function (e) {{
-  e.preventDefault();
-  var k = document.getElementById('dl-key').value.trim().toUpperCase().replace(/\\s+/g, '');
-  if (!/^[A-Z]{{3}}-[A-Z0-9]{{4}}-[A-Z0-9]{{4}}-[A-Z0-9]{{4}}-[A-Z0-9]{{4}}$/.test(k)) {{
-    document.getElementById('dl-err').textContent = 'That doesn\\u2019t look like a license key. It looks like SST-XXXX-XXXX-XXXX-XXXX.';
-    return;
-  }}
-  location.href = 'https://discord.com/oauth2/authorize?client_id={DISCORD_CLIENT_ID}&response_type=code' +
-    '&redirect_uri=' + encodeURIComponent('{LICENSE_URL}') + '&scope=identify%20guilds.join&prompt=consent&state=' + encodeURIComponent(k);
-}});
+(function () {{
+  var base = 'https://discord.com/oauth2/authorize?client_id={DISCORD_CLIENT_ID}&response_type=code' +
+    '&redirect_uri=' + encodeURIComponent('{LICENSE_URL}') + '&scope=identify%20email%20guilds.join&state=';
+  document.getElementById('dl-go').href = base + 'e';
+  var pre = new URLSearchParams(location.search).get('key');
+  if (pre) {{ document.getElementById('dl-key').value = pre; document.querySelector('#dl').closest('details').open = true; }}
+  document.getElementById('dl').addEventListener('submit', function (e) {{
+    e.preventDefault();
+    var k = document.getElementById('dl-key').value.trim().toUpperCase().replace(/\\s+/g, '');
+    if (!/^[A-Z]{{3}}-[A-Z0-9]{{4}}-[A-Z0-9]{{4}}-[A-Z0-9]{{4}}-[A-Z0-9]{{4}}$/.test(k)) {{
+      document.getElementById('dl-err').textContent = 'That doesn\\u2019t look like a license key. It looks like SST-XXXX-XXXX-XXXX-XXXX.';
+      return;
+    }}
+    location.href = base + encodeURIComponent(k);
+  }});
+}})();
 </script>"""
 page("/discord/", "Link your license to Discord | Silent Service Trading",
      "SST and NYOpen customers: link your license key to Discord to get the customer channels.", "", discord_link, noindex=True)
