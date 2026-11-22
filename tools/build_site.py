@@ -91,7 +91,6 @@ def header(active):
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav" id="site-nav" aria-label="Main">
 {links}
-      <a class="btn btn-primary btn-sm" href="/pricing/">Get SST</a>
     </nav>
   </div>
 </header>
