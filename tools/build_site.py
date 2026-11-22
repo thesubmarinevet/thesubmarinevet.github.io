@@ -185,8 +185,8 @@ ld = {
     {"@type": "Organization", "name": "Silent Service Trading", "url": SITE + "/",
      "parentOrganization": {"@type": "Organization", "name": "The Submarine Vet"},
      "email": EMAIL,
-     "sameAs": ["https://x.com/thesubmarinevet", "https://www.youtube.com/@thesubmarinevet", "https://www.instagram.com/thesubmarinevet",
-                "https://www.facebook.com/thesubmarinevet", "https://www.tiktok.com/@thesubmarinevet", "https://www.threads.net/@thesubmarinevet",
+     "sameAs": ["https://x.com/thesubmarinevet", "https://www.youtube.com/@thesubmarinevet", "https://www.instagram.com/silentservicetrading",
+                "https://www.facebook.com/thesubmarinevet", "https://www.tiktok.com/@silentservicetrading", "https://www.threads.net/@silentservicetrading",
                 "https://www.tradingview.com/u/thesubmarinevet/"]},
     {"@type": "SoftwareApplication", "name": "Silent Service Trading", "applicationCategory": "FinanceApplication",
      "operatingSystem": "Windows (NinjaTrader 8)", "url": SITE + "/command-center/",
@@ -819,8 +819,8 @@ page("/automation/thanks/", "Welcome aboard — NYOpen | Silent Service Trading"
 
 # ------------------------------------------------------------------ ABOUT
 socials = [("X", "https://x.com/thesubmarinevet"), ("YouTube", "https://youtube.com/@thesubmarinevet"),
-           ("Instagram", "https://instagram.com/thesubmarinevet"), ("TikTok", "https://tiktok.com/@thesubmarinevet"),
-           ("Facebook", "https://facebook.com/thesubmarinevet"), ("Threads", "https://threads.net/@thesubmarinevet"),
+           ("Instagram", "https://instagram.com/silentservicetrading"), ("TikTok", "https://tiktok.com/@silentservicetrading"),
+           ("Facebook", "https://facebook.com/thesubmarinevet"), ("Threads", "https://threads.net/@silentservicetrading"),
            ("TradingView", "https://www.tradingview.com/u/thesubmarinevet/")]
 follow = "\n".join(f'        <a href="{u}" rel="noopener" target="_blank">{n}<span class="sr-only"> (opens in a new tab)</span></a>' for n, u in socials)
 about = f"""<section class="page-hero">
