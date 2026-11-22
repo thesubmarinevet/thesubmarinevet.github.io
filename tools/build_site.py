@@ -1016,7 +1016,7 @@ page("/command-center/thanks/", "Welcome aboard — SST | Silent Service Trading
      "Thanks for your purchase. Here's how to install SST and get started.", "", thanks, noindex=True)
 
 # ------------------------------------------------------------------ DISCORD LINK (license key → Discord roles)
-DISCORD_CLIENT_ID = "__CLIENT_ID__"
+DISCORD_CLIENT_ID = "1574185636548579510"
 discord_link = f"""<section class="page-hero">
   <div class="wrap">
     <p class="eyebrow">Customers</p>
