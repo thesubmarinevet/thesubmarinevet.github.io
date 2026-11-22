@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Generates the static pages for thesubmarinevet.com (redesign branch).
+"""Generates the static pages for silentservicetrading.com.
 Output is plain HTML committed to the repo; GitHub Pages serves it as-is."""
 import json, sys, os
 
 ROOT = sys.argv[1]
-SITE = "https://thesubmarinevet.com"
+SITE = "https://silentservicetrading.com"
 EMAIL = "thesubmarineveteran@gmail.com"
 
 import hashlib as _hl, os as _os

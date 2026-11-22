@@ -1,8 +1,8 @@
-# thesubmarinevet.com
+# silentservicetrading.com
 
 Website for **The Submarine Vet** (parent brand) and **Silent Service Trading (SST)**, his NinjaTrader 8 software. The product page stays at `/command-center/` (old name; Stripe and old links point there).
 
-Static site on GitHub Pages: `main` is live at thesubmarinevet.com (`CNAME`). No build step is needed to deploy — every page is plain HTML.
+Static site on GitHub Pages: `main` is live at silentservicetrading.com (`CNAME`). The old thesubmarinevet.com redirects page-for-page (separate redirect repo). No build step is needed to deploy — every page is plain HTML.
 
 ## Pages
 | URL | File |
