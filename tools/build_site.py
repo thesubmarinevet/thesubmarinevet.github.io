@@ -458,7 +458,7 @@ cc = f"""<section class="page-hero">
           <tr><th scope="row">Computer</th><td>Windows PC or Windows VPS; NinjaTrader must be open and connected while you trade</td></tr>
           <tr><th scope="row">Markets</th><td>CME futures (index, energy and metals contracts, minis and micros)</td></tr>
           <tr><th scope="row">Accounts</th><td>Any account you can trade in NinjaTrader&nbsp;8, including simulation accounts</td></tr>
-          <tr><th scope="row">License</th><td>One license key, up to 2 machines</td></tr>
+          <tr><th scope="row">License</th><td>One license key: 1 machine (Monthly / Annual), up to 2 (Lifetime)</td></tr>
         </tbody>
       </table>
     </div>
@@ -513,7 +513,7 @@ pricing = f"""<section class="page-hero">
         <ul class="checks">
           <li>Silent Service Trading (SST) for NinjaTrader&nbsp;8</li>
           <li>All updates while subscribed</li>
-          <li>Up to 2 machines</li>
+          <li>1 machine</li>
           <li>Direct support from the developer</li>
         </ul>
         <a class="btn btn-secondary btn-block" data-plan="monthly" href="https://buy.stripe.com/6oU4gydih0RP6fo1B4gnK03" target="_blank" rel="noopener">Start monthly</a>
@@ -526,7 +526,7 @@ pricing = f"""<section class="page-hero">
         <ul class="checks">
           <li>Everything in Monthly</li>
           <li>Saves $88 a year</li>
-          <li>Up to 2 machines</li>
+          <li>1 machine</li>
           <li>Direct support from the developer</li>
         </ul>
         <a class="btn btn-secondary btn-block" data-plan="annual" href="https://buy.stripe.com/3cI3cucedasp9rAgvYgnK04" target="_blank" rel="noopener">Start annual</a>
@@ -599,7 +599,7 @@ pricing = f"""<section class="page-hero">
           <tr><th scope="row">SST updates</th><td>While subscribed</td><td>While subscribed</td><td class="yes">Forever</td></tr>
           <tr><th scope="row">Automated strategies (<a href="/automation/">NYOpen</a>)</th><td>$39.99 / month each</td><td>$39.99 / month each</td><td class="yes">Included</td></tr>
           <tr><th scope="row">Future playbooks</th><td>Sold separately</td><td>Sold separately</td><td class="yes">Included</td></tr>
-          <tr><th scope="row">Machines per license</th><td>2</td><td>2</td><td>2</td></tr>
+          <tr><th scope="row">Machines per license</th><td>1</td><td>1</td><td>2</td></tr>
           <tr><th scope="row">Billing</th><td>$49 monthly</td><td>$500 yearly</td><td>$1,999 once</td></tr>
         </tbody>
       </table>
@@ -921,7 +921,7 @@ support = f"""<section class="page-hero">
         <li>NinjaTrader&nbsp;8 <span>on Windows or a Windows VPS</span></li>
         <li>NinjaTrader open and connected <span>while you trade</span></li>
         <li>CME futures accounts <span>(prop, broker or simulation)</span></li>
-        <li>One license key <span>for up to 2 machines</span></li>
+        <li>One license key <span>for 1 machine (Lifetime: 2)</span></li>
       </ul>
     </div>
   </div>
@@ -944,7 +944,7 @@ support = f"""<section class="page-hero">
       <details><summary>Which accounts does it work with?</summary><div><p>Any account you can trade in NinjaTrader&nbsp;8, including prop-firm accounts connected there and NinjaTrader's simulation accounts.</p></div></details>
       <details><summary>Can I try it without risking money?</summary><div><p>Yes, and you should. Set it up on simulation accounts first, test your copier group and rules, then move to live accounts.</p></div></details>
       <details><summary>Do you see my account data?</summary><div><p>No. Your accounts, balances and positions stay inside NinjaTrader on your machine. The license check sends only your license key and a machine ID.</p></div></details>
-      <details><summary>How do I move my license to a new computer?</summary><div><p>Each license runs on up to 2 machines. <a href="mailto:{EMAIL}">Email us</a> and we'll free up a seat.</p></div></details>
+      <details><summary>How do I move my license to a new computer?</summary><div><p>Monthly and Annual licenses run on 1 machine; Lifetime on up to 2. <a href="mailto:{EMAIL}">Email us</a> and we'll free up a seat.</p></div></details>
       <details><summary>How do I cancel or change my plan?</summary><div><p><a href="mailto:{EMAIL}">Email us</a> from the address you used at checkout. Monthly and annual plans run to the end of the period you've paid for.</p></div></details>
       <details><summary>Does NYOpen need SST?</summary><div><p>No. NYOpen is a NinjaTrader&nbsp;8 strategy and runs on its own with its own license key. It's included with an SST Lifetime license — leave its License Key empty and it uses the SST key on that PC.</p></div></details>
       <details><summary>Does NYOpen trade micros?</summary><div><p>Yes — run it on MES or MNQ as well as ES or NQ. The stop and target are set in dollars per contract and converted to ticks, so the distance stays the same at any size.</p></div></details>
