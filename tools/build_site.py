@@ -185,7 +185,7 @@ ld = {
     {"@type": "Organization", "name": "Silent Service Trading", "url": SITE + "/",
      "parentOrganization": {"@type": "Organization", "name": "The Submarine Vet"},
      "email": EMAIL,
-     "sameAs": ["https://x.com/thesubmarinevet", "https://www.youtube.com/@SilentServiceTrading", "https://www.instagram.com/silentservicetrading",
+     "sameAs": ["https://x.com/SilentSvcTrade", "https://www.youtube.com/@SilentServiceTrading", "https://www.instagram.com/silentservicetrading",
                 "https://www.facebook.com/thesubmarinevet", "https://www.tiktok.com/@silentservicetrading", "https://www.threads.net/@silentservicetrading",
                 "https://www.tradingview.com/u/thesubmarinevet/"]},
     {"@type": "SoftwareApplication", "name": "Silent Service Trading", "applicationCategory": "FinanceApplication",
@@ -818,7 +818,7 @@ page("/automation/thanks/", "Welcome aboard — NYOpen | Silent Service Trading"
      "Thanks for subscribing to NYOpen. Here's how to install it and enter your license key.", "", nyopen_thanks, noindex=True)
 
 # ------------------------------------------------------------------ ABOUT
-socials = [("X", "https://x.com/thesubmarinevet"), ("YouTube", "https://youtube.com/@SilentServiceTrading"),
+socials = [("X", "https://x.com/SilentSvcTrade"), ("YouTube", "https://youtube.com/@SilentServiceTrading"),
            ("Instagram", "https://instagram.com/silentservicetrading"), ("TikTok", "https://tiktok.com/@silentservicetrading"),
            ("Facebook", "https://facebook.com/thesubmarinevet"), ("Threads", "https://threads.net/@silentservicetrading"),
            ("TradingView", "https://www.tradingview.com/u/thesubmarinevet/")]
