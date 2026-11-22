@@ -7,6 +7,14 @@ ROOT = sys.argv[1]
 SITE = "https://thesubmarinevet.com"
 EMAIL = "thesubmarineveteran@gmail.com"
 
+import hashlib as _hl, os as _os
+def _asset_v():
+    h=_hl.sha256()
+    for f in ("assets/site.css","assets/site.js"):
+        h.update(open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", f),"rb").read())
+    return h.hexdigest()[:8]
+ASSET_V=_asset_v()   # changes whenever site.css / site.js change, so browsers fetch the new copy
+
 LOGO = """<svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
   <path d="M14 2 H50 L62 14 V50 L50 62 H14 L2 50 V14 Z" fill="#0E0F0C" stroke="#5C6352" stroke-width="2"/>
   <circle cx="32" cy="32" r="21" fill="#17140A" stroke="#F2A900" stroke-opacity="0.45" stroke-width="2.5"/>
@@ -61,8 +69,8 @@ def head(title, desc, path, noindex=False, extra=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;650;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
-<script src="/assets/site.js" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">
+<script src="/assets/site.js?v={ASSET_V}" defer></script>
 {extra}</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -692,7 +700,7 @@ automation = f"""<section class="page-hero">
         <h3>NYOpen</h3>
         <p class="price">$39.99<small>/ month</small></p>
         <p class="price-note">Monthly subscription, cancel anytime. Included with SST Lifetime.</p>
-        <a class="btn btn-primary btn-block" data-plan="nyopen" href="mailto:{EMAIL}?subject=NYOpen%20-%20subscribe">Get NYOpen</a>
+        <a class="btn btn-primary btn-block" data-plan="nyopen" href="https://buy.stripe.com/fZuaEW4LL8kh33c1B4gnK06" target="_blank" rel="noopener">Get NYOpen</a>
         <p class="muted small" style="margin-top:12px">Checkout opens in a new tab, by Stripe. <a href="/support/#nyopen">How setup works</a></p>
       </div>
     </div>
