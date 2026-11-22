@@ -149,7 +149,10 @@ def shot(label, file_hint, alt, bar="Silent Service Trading", eager=False):
         w, h = Image.open(img).size
         load = 'fetchpriority="high"' if eager else 'loading="lazy"'
         return f"""<figure class="shot shot-real">
-  <img src="/assets/img/{name}.webp" alt="{alt}" width="{w}" height="{h}" {load} decoding="async">
+  <button class="zoom" type="button" aria-label="Enlarge image: {alt}">
+    <img src="/assets/img/{name}.webp" alt="{alt}" width="{w}" height="{h}" {load} decoding="async">
+    <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M11 8v6M8 11h6"/></svg>Click to enlarge</span>
+  </button>
 </figure>"""
     return f"""<figure class="shot">
   <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>{bar}</span></div>

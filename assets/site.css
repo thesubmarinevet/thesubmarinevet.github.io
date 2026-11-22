@@ -351,3 +351,18 @@ p a,li a,.faq a,.notice a{text-decoration:underline;text-underline-offset:3px;te
 .plan-aside h3{font-size:18px;margin:0 0 6px;}
 .plan-aside p{margin:0 0 22px;}
 @media (max-width:860px){.plans-solo{grid-template-columns:1fr;}}
+
+/* Screenshot zoom */
+.zoom{display:block;position:relative;width:100%;padding:0;margin:0;border:0;background:none;cursor:zoom-in;color:inherit;font:inherit;}
+.zoom img{display:block;width:100%;height:auto;}
+.zoom-hint{position:absolute;right:12px;bottom:12px;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(11,18,32,.82);border:1px solid var(--border);color:var(--text);font-size:12.5px;opacity:0;transition:opacity .15s;}
+.zoom:hover .zoom-hint,.zoom:focus-visible .zoom-hint{opacity:1;}
+.zoom:focus-visible{outline:2px solid var(--accent, #38BDF8);outline-offset:3px;}
+@media (hover:none){.zoom-hint{opacity:1;}}
+.lightbox{padding:0;border:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh;margin:0;display:none;}
+.lightbox[open]{display:flex;align-items:center;justify-content:center;cursor:zoom-out;}
+.lightbox::backdrop{background:rgba(5,9,16,.92);}
+.lightbox-img{max-width:96vw;max-height:92vh;width:auto;height:auto;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6);}
+.lightbox-close{position:fixed;top:14px;right:18px;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:rgba(20,27,38,.9);color:var(--text);font-size:28px;line-height:1;cursor:pointer;}
+.lightbox-close:focus-visible{outline:2px solid #38BDF8;outline-offset:2px;}
+html.lightbox-open{overflow:hidden;}
