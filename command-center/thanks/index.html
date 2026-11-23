@@ -76,7 +76,7 @@
   if (!sid) return;
   var box = document.getElementById('keybox'); box.style.display = '';
   fetch('https://script.google.com/macros/s/AKfycbyB-xatkIN-GCc3uUEgaa0H1QC5Yi1rD7DsWEI442XxuRJj9Jlsqq6p9635eTSCdNI_yA/exec?a=claim&session=' + encodeURIComponent(sid)).then(function (r) { return r.json(); }).then(function (d) {
-    if (!d.ok) { document.getElementById('kb-msg').textContent = d.error || 'Your key will arrive by email in a few minutes.'; return; }
+    if (!d.ok) { if (d.error && window.console) console.warn('License claim: ' + d.error); document.getElementById('kb-msg').textContent = 'Your key will arrive by email in a few minutes.'; return; }
     document.getElementById('kb-msg').textContent = d.product + ':';
     document.getElementById('kb-key').textContent = d.key;
     document.getElementById('kb-keyrow').style.display = 'flex';

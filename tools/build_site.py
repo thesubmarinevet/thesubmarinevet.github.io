@@ -24,7 +24,7 @@ KEYBOX = """    <div id="keybox" class="card" style="display:none;margin-bottom:
   if (!sid) return;
   var box = document.getElementById('keybox'); box.style.display = '';
   fetch('LICENSE_URL_HERE?a=claim&session=' + encodeURIComponent(sid)).then(function (r) { return r.json(); }).then(function (d) {
-    if (!d.ok) { document.getElementById('kb-msg').textContent = d.error || 'Your key will arrive by email in a few minutes.'; return; }
+    if (!d.ok) { if (d.error && window.console) console.warn('License claim: ' + d.error); document.getElementById('kb-msg').textContent = 'Your key will arrive by email in a few minutes.'; return; }
     document.getElementById('kb-msg').textContent = d.product + ':';
     document.getElementById('kb-key').textContent = d.key;
     document.getElementById('kb-keyrow').style.display = 'flex';
