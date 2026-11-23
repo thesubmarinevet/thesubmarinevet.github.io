@@ -1040,7 +1040,7 @@ discord_link = f"""<section class="page-hero">
         </form>
       </details>
     </div>
-    <p class="muted" style="margin-top:24px">Not a customer yet? The community channels are open to everyone: <a href="https://discord.gg/Vx8zWWyaSt" rel="noopener">join the server</a>. Trouble? Email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+    <p class="muted" style="margin-top:24px">Not a customer yet? The community channels are open to everyone: <a href="https://discord.gg/yHFGeUp4Ah" rel="noopener">join the server</a>. Trouble? Email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
   </div>
 </section>
 <script>
